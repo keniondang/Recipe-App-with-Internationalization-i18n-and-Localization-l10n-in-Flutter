@@ -19,7 +19,7 @@ class _RecipeCardState extends State<RecipeCard> {
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
       transform: _isHovered
-          ? (Matrix4.identity()..scale(1.05))
+          ? (Matrix4.identity()..scaleByDouble(1.02, 1.02, 1, 1))
           : Matrix4.identity(),
       transformAlignment: FractionalOffset.center,
       child: MouseRegion(
@@ -39,7 +39,7 @@ class _RecipeCardState extends State<RecipeCard> {
               borderRadius: BorderRadius.circular(20),
             ),
             elevation: _isHovered ? 12 : 4,
-            shadowColor: Colors.black.withOpacity(0.2),
+            shadowColor: Colors.black.withAlpha(32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
