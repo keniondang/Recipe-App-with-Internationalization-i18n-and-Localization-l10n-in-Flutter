@@ -29,10 +29,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       // IndexedStack keeps all screens in the widget tree, preserving their state
       // when switching tabs.
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _widgetOptions,
-      ),
+      body: IndexedStack(index: _selectedIndex, children: _widgetOptions),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

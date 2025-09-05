@@ -33,12 +33,16 @@ class RecipeDetailScreen extends StatelessWidget {
                 ),
               ),
               background: Hero(
-                tag: 'recipe-${recipe.id}', 
+                tag: 'recipe-${recipe.id}',
                 child: Image.network(
                   recipe.image,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) => const Center(
-                    child: Icon(Icons.broken_image, color: Colors.grey, size: 50),
+                    child: Icon(
+                      Icons.broken_image,
+                      color: Colors.grey,
+                      size: 50,
+                    ),
                   ),
                 ),
               ),
@@ -52,29 +56,51 @@ class RecipeDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     recipe.description,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(fontSize: 16),
                   ),
                   const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      InfoChip(icon: Icons.timer_outlined, label: '${recipe.time} min'),
-                      InfoChip(icon: Icons.people_outline, label: '${recipe.servings} servings'),
-                      InfoChip(icon: Icons.star_border, label: '${recipe.rating}'),
+                      InfoChip(
+                        icon: Icons.timer_outlined,
+                        label: '${recipe.time} min',
+                      ),
+                      InfoChip(
+                        icon: Icons.people_outline,
+                        label: '${recipe.servings} servings',
+                      ),
+                      InfoChip(
+                        icon: Icons.star_border,
+                        label: '${recipe.rating}',
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24),
-                  Text('Ingredients', style: Theme.of(context).textTheme.titleLarge),
+                  Text(
+                    'Ingredients',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   const SizedBox(height: 10),
-                  ...recipe.ingredients.map((ing) => ListTile(
-                        leading: Icon(Icons.check_box_outline_blank, color: Colors.teal.shade300),
-                        title: Text(
-                          "${ing['quantity']} ${ing['name']}",
-                          style: const TextStyle(fontSize: 16),
-                        ),
-                      )),
+                  ...recipe.ingredients.map(
+                    (ing) => ListTile(
+                      leading: Icon(
+                        Icons.check_box_outline_blank,
+                        color: Colors.teal.shade300,
+                      ),
+                      title: Text(
+                        "${ing['quantity']} ${ing['name']}",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ),
                   const SizedBox(height: 24),
-                  Text('Instructions', style: Theme.of(context).textTheme.titleLarge),
+                  Text(
+                    'Instructions',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   const SizedBox(height: 10),
                   ...List.generate(recipe.steps.length, (index) {
                     return ListTile(
@@ -92,7 +118,7 @@ class RecipeDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

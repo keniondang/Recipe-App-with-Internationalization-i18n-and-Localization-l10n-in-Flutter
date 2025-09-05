@@ -23,7 +23,9 @@ class SettingsScreen extends StatelessWidget {
             onTap: () {
               // This is where we will add language selection logic later
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Language selection will be implemented here!')),
+                const SnackBar(
+                  content: Text('Language selection will be implemented here!'),
+                ),
               );
             },
           ),
@@ -44,4 +46,3 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 }
-

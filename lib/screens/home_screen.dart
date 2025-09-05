@@ -19,14 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Recipe> get _filteredRecipes {
     List<Recipe> recipes = mockRecipes;
-    
+
     if (_searchQuery.isNotEmpty) {
       return recipes
-          .where((recipe) =>
-              recipe.name.toLowerCase().contains(_searchQuery.toLowerCase()))
+          .where(
+            (recipe) =>
+                recipe.name.toLowerCase().contains(_searchQuery.toLowerCase()),
+          )
           .toList();
     }
-    
+
     if (_selectedCuisineId != 'all') {
       return recipes
           .where((recipe) => recipe.cuisine == _selectedCuisineId)
@@ -35,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return recipes;
   }
-  
+
   @override
   void dispose() {
     _searchController.dispose();
@@ -57,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            
+
             FadeInAnimation(
               delay: const Duration(milliseconds: 300),
               child: TextField(
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: PromoBanner(),
             ),
             const SizedBox(height: 24),
-            
+
             // Categories
             FadeInAnimation(
               delay: const Duration(milliseconds: 500),
@@ -102,7 +104,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: mockCuisines.length,
-                  separatorBuilder: (context, index) => const SizedBox(width: 10),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 10),
                   itemBuilder: (context, index) {
                     final category = mockCuisines[index];
                     final isSelected = category.id == _selectedCuisineId;
@@ -110,14 +113,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       label: Text(category.name),
                       selected: isSelected,
                       onSelected: (selected) {
-                         if (selected) {
-                           setState(() {
-                             _selectedCuisineId = category.id;
-                             _searchQuery = '';
-                             _searchController.clear();
-                             FocusScope.of(context).unfocus();
-                           });
-                         }
+                        if (selected) {
+                          setState(() {
+                            _selectedCuisineId = category.id;
+                            _searchQuery = '';
+                            _searchController.clear();
+                            FocusScope.of(context).unfocus();
+                          });
+                        }
                       },
                       backgroundColor: Colors.grey.shade200,
                       selectedColor: Colors.teal,
@@ -125,7 +128,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: isSelected ? Colors.white : Colors.black87,
                         fontWeight: FontWeight.w600,
                       ),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       side: BorderSide.none,
                     );
                   },
@@ -133,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            
+
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -147,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 return FadeInAnimation(
                   delay: Duration(milliseconds: 700 + (index * 100)),
-                  child: RecipeCard(recipe: _filteredRecipes[index])
+                  child: RecipeCard(recipe: _filteredRecipes[index]),
                 );
               },
             ),
@@ -157,4 +162,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

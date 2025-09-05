@@ -17,7 +17,7 @@ class _PromoBannerState extends State<PromoBanner> {
     'Cook the best\nrecipes at home',
     'Discover new\nflavors every day',
     'Simple recipes for\nyour busy life',
-    'Impress your guests\nwith your skills'
+    'Impress your guests\nwith your skills',
   ];
 
   @override
@@ -69,10 +69,7 @@ class _PromoBannerState extends State<PromoBanner> {
               shape: BoxShape.circle,
             ),
             child: const Center(
-              child: Text(
-                '👩‍🍳',
-                style: TextStyle(fontSize: 40),
-              ),
+              child: Text('👩‍🍳', style: TextStyle(fontSize: 40)),
             ),
           ),
           const SizedBox(height: 16),
@@ -106,4 +103,3 @@ class _PromoBannerState extends State<PromoBanner> {
     );
   }
 }
-

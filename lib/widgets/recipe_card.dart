@@ -18,7 +18,9 @@ class _RecipeCardState extends State<RecipeCard> {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
-      transform: _isHovered ? (Matrix4.identity()..scale(1.05)) : Matrix4.identity(),
+      transform: _isHovered
+          ? (Matrix4.identity()..scale(1.05))
+          : Matrix4.identity(),
       transformAlignment: FractionalOffset.center,
       child: MouseRegion(
         onEnter: (_) => setState(() => _isHovered = true),
@@ -27,11 +29,15 @@ class _RecipeCardState extends State<RecipeCard> {
         child: GestureDetector(
           onTap: () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => RecipeDetailScreen(recipe: widget.recipe)),
+            MaterialPageRoute(
+              builder: (context) => RecipeDetailScreen(recipe: widget.recipe),
+            ),
           ),
           child: Card(
             clipBehavior: Clip.antiAlias,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             elevation: _isHovered ? 12 : 4,
             shadowColor: Colors.black.withOpacity(0.2),
             child: Column(
@@ -48,9 +54,14 @@ class _RecipeCardState extends State<RecipeCard> {
                         if (loadingProgress == null) return child;
                         return const Center(child: CircularProgressIndicator());
                       },
-                      errorBuilder: (context, error, stackTrace) => const Center(
-                        child: Icon(Icons.broken_image, color: Colors.grey, size: 40),
-                      ),
+                      errorBuilder: (context, error, stackTrace) =>
+                          const Center(
+                            child: Icon(
+                              Icons.broken_image,
+                              color: Colors.grey,
+                              size: 40,
+                            ),
+                          ),
                     ),
                   ),
                 ),
@@ -61,18 +72,28 @@ class _RecipeCardState extends State<RecipeCard> {
                     children: [
                       Text(
                         widget.recipe.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 4),
                       Row(
                         children: [
-                          Icon(Icons.timer_outlined, size: 16, color: Colors.grey.shade600),
+                          Icon(
+                            Icons.timer_outlined,
+                            size: 16,
+                            color: Colors.grey.shade600,
+                          ),
                           const SizedBox(width: 4),
                           Text(
                             '${widget.recipe.time} min',
-                            style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.grey.shade600,
+                              fontSize: 12,
+                            ),
                           ),
                         ],
                       ),
@@ -87,4 +108,3 @@ class _RecipeCardState extends State<RecipeCard> {
     );
   }
 }
-
