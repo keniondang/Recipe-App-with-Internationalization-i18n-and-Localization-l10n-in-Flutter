@@ -17,7 +17,7 @@ class FadeInAnimation extends StatefulWidget {
 }
 
 class _FadeInAnimationState extends State<FadeInAnimation>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   late AnimationController _controller;
   late Animation<double> _opacityAnimation;
   late Animation<Offset> _slideAnimation;
@@ -58,4 +58,7 @@ class _FadeInAnimationState extends State<FadeInAnimation>
       child: SlideTransition(position: _slideAnimation, child: widget.child),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
