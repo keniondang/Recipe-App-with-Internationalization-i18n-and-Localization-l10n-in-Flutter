@@ -9,7 +9,7 @@ class FadeInAnimation extends StatefulWidget {
     super.key,
     required this.child,
     this.delay = Duration.zero,
-    this.duration = const Duration(milliseconds: 500),
+    this.duration = const Duration(milliseconds: 200), // Reduced from 500ms
   });
 
   @override
@@ -39,7 +39,7 @@ class _FadeInAnimationState extends State<FadeInAnimation>
     ));
 
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.2),
+      begin: const Offset(0, 0.1), // Reduced from 0.2 for subtler effect
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: _controller,

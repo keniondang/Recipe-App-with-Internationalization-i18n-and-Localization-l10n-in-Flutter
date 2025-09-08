@@ -306,11 +306,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   // Determine crossAxisCount based on screen width
                   int crossAxisCount = 2; // Default for mobile
                   if (constraints.crossAxisExtent > 1000) {
-                    crossAxisCount = 4; // Desktop/tablet landscape
+                    crossAxisCount = 3; // Desktop/tablet landscape
                   } else if (constraints.crossAxisExtent > 600) {
                     crossAxisCount = 3; // Tablet portrait
-                  } else if (constraints.crossAxisExtent > 25) {
-                    crossAxisCount = 1;
                   }
                   
                   return SliverPadding(
@@ -319,7 +317,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
                           return FadeInAnimation(
-                            delay: Duration(milliseconds: 700 + (index * 50)),
+                            delay: Duration(milliseconds: 200 + (index * 20)),
                             child: RecipeCard(recipe: _filteredRecipes[index]),
                           );
                         },
@@ -482,7 +480,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             duration: const Duration(milliseconds: 300),
             child: Container(
               margin: EdgeInsets.only(
-                top: MediaQuery.of(context).padding.top + 120,
+                top: MediaQuery.of(context).padding.top + 160,
                 left: 20,
                 right: 20,
               ),

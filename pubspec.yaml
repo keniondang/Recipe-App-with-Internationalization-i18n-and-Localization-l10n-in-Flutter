@@ -93,3 +93,6 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
+          
+  assets:
+    - assets/images/recipes/

@@ -57,56 +57,49 @@ class RecipeCard extends StatelessWidget {
                     borderRadius: const BorderRadius.vertical(
                       top: Radius.circular(20),
                     ),
-                    child: Image.network(
+                    child: Image.asset(
                       recipe.image,
                       fit: BoxFit.cover,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
+                      // Optional: Add error handling for missing assets
+                      errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: Colors.grey.shade100,
-                          child: Center(
-                            child: SizedBox(
-                              width: 24,
-                              height: 24,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                      errorBuilder: (context, error, stackTrace) => Container(
-                        color: Colors.grey.shade100,
-                        child: Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.image_not_supported_outlined,
-                                color: Colors.grey.shade400,
-                                size: 32,
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Image unavailable',
-                                style: TextStyle(
-                                  color: Colors.grey.shade500,
-                                  fontSize: 10,
+                              Container(
+                                padding: const EdgeInsets.all(16),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
+                                child: Icon(
+                                  Icons.restaurant_menu_rounded,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  size: 32,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                recipe.name,
+                                style: TextStyle(
+                                  color: Colors.grey.shade600,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
                               ),
                             ],
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ),
                 ),
               ),
             ),
-            // Expanded content area with description
+            // Content area with description
             Expanded(
               flex: 2,
               child: Container(
