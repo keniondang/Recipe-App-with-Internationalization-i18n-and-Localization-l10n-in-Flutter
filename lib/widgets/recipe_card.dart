@@ -106,59 +106,77 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
             ),
-            // Simple, overflow-safe content area
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Title only
-                  Text(
-                    recipe.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12,
+            // Expanded content area with description
+            Expanded(
+              flex: 2,
+              child: Container(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title
+                    Text(
+                      recipe.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 4),
-                  // Single row with time only
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time_rounded,
-                        size: 8,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      const SizedBox(width: 2),
-                      Text(
-                        '${recipe.time}m',
+                    const SizedBox(height: 4),
+                    
+                    // Description
+                    Expanded(
+                      child: Text(
+                        recipe.description,
                         style: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontSize: 11,
+                          height: 1.3,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    
+                    // Time and rating row
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.access_time_rounded,
+                          size: 12,
                           color: Theme.of(context).colorScheme.primary,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w600,
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                      Icon(
-                        Icons.star_rounded,
-                        size: 8,
-                        color: Colors.amber,
-                      ),
-                      const SizedBox(width: 2),
-                      Text(
-                        recipe.rating.toString(),
-                        style: const TextStyle(
+                        const SizedBox(width: 3),
+                        Text(
+                          '${recipe.time}m',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Icon(
+                          Icons.star_rounded,
+                          size: 12,
                           color: Colors.amber,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w600,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        const SizedBox(width: 3),
+                        Text(
+                          recipe.rating.toString(),
+                          style: const TextStyle(
+                            color: Colors.amber,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

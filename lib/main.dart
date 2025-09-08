@@ -145,7 +145,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
