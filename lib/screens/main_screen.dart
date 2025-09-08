@@ -327,7 +327,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         crossAxisCount: crossAxisCount,
                         crossAxisSpacing: 16,
                         mainAxisSpacing: 20,
-                        childAspectRatio: 0.75,
+                        childAspectRatio: 0.85, // Increased from 0.75 to make cards shorter
                       ),
                     ),
                   );

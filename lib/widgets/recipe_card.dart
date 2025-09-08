@@ -42,8 +42,9 @@ class RecipeCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Image section - takes up most of the space
             Expanded(
-              flex: 3,
+              flex: 5,
               child: Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
@@ -60,7 +61,6 @@ class RecipeCard extends StatelessWidget {
                     child: Image.asset(
                       recipe.image,
                       fit: BoxFit.cover,
-                      // Optional: Add error handling for missing assets
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: Colors.grey.shade100,
@@ -68,18 +68,18 @@ class RecipeCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(16),
+                                padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Icon(
                                   Icons.restaurant_menu_rounded,
                                   color: Theme.of(context).colorScheme.primary,
-                                  size: 32,
+                                  size: 24,
                                 ),
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(height: 6),
                               Text(
                                 recipe.name,
                                 style: TextStyle(
@@ -99,11 +99,11 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
             ),
-            // Content area with description
+            // Content section - compact
             Expanded(
-              flex: 2,
-              child: Container(
-                padding: const EdgeInsets.all(12.0),
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -112,57 +112,56 @@ class RecipeCard extends StatelessWidget {
                       recipe.name,
                       style: const TextStyle(
                         fontWeight: FontWeight.w700,
-                        fontSize: 14,
+                        fontSize: 13,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 3),
                     
-                    // Description
+                    // Description - limited space
                     Expanded(
                       child: Text(
                         recipe.description,
                         style: TextStyle(
                           color: Colors.grey.shade600,
-                          fontSize: 11,
-                          height: 1.3,
+                          fontSize: 10,
+                          height: 1.2,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const SizedBox(height: 6),
                     
-                    // Time and rating row
+                    // Time and rating row - compact
                     Row(
                       children: [
                         Icon(
                           Icons.access_time_rounded,
-                          size: 12,
+                          size: 11,
                           color: Theme.of(context).colorScheme.primary,
                         ),
-                        const SizedBox(width: 3),
+                        const SizedBox(width: 2),
                         Text(
                           '${recipe.time}m',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
-                            fontSize: 10,
+                            fontSize: 9,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        const SizedBox(width: 8),
                         Icon(
                           Icons.star_rounded,
-                          size: 12,
+                          size: 11,
                           color: Colors.amber,
                         ),
-                        const SizedBox(width: 3),
+                        const SizedBox(width: 2),
                         Text(
                           recipe.rating.toString(),
                           style: const TextStyle(
                             color: Colors.amber,
-                            fontSize: 10,
+                            fontSize: 9,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
