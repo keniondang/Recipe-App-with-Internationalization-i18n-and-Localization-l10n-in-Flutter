@@ -13,21 +13,33 @@ class _PromoBannerState extends State<PromoBanner> {
   Timer? _timer;
 
   // List of texts to cycle through in the banner
-  static const List<String> _promoTexts = [
-    'Cook the best\nrecipes at home',
-    'Discover new\nflavors every day',
-    'Simple recipes for\nyour busy life',
-    'Impress your guests\nwith your skills',
+  static const List<Map<String, dynamic>> _promoContent = [
+    {
+      'text': 'Cook the best\nrecipes at home',
+      'icon': Icons.home_outlined,
+    },
+    {
+      'text': 'Discover new\nflavors every day',
+      'icon': Icons.explore_outlined,
+    },
+    {
+      'text': 'Simple recipes for\nyour busy life',
+      'icon': Icons.access_time_outlined,
+    },
+    {
+      'text': 'Impress your guests\nwith your skills',
+      'icon': Icons.star_outline_rounded,
+    }
   ];
 
   @override
   void initState() {
     super.initState();
-    // Start a timer that updates the text every 15 seconds
-    _timer = Timer.periodic(const Duration(seconds: 15), (timer) {
+    // Start a timer that updates the content every 4 seconds
+    _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
       if (mounted) {
         setState(() {
-          _currentTextIndex = (_currentTextIndex + 1) % _promoTexts.length;
+          _currentTextIndex = (_currentTextIndex + 1) % _promoContent.length;
         });
       }
     });
@@ -41,61 +53,113 @@ class _PromoBannerState extends State<PromoBanner> {
 
   @override
   Widget build(BuildContext context) {
+    final currentContent = _promoContent[_currentTextIndex];
+    
     return Container(
-      padding: const EdgeInsets.all(20),
+      width: double.infinity,
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: LinearGradient(
-          colors: [Colors.green.shade300, Colors.green.shade400],
+          colors: [
+            Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.primary.withOpacity(0.8),
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.green.withOpacity(0.3),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
-              shape: BoxShape.circle,
-            ),
-            child: const Center(
-              child: Text('👩‍🍳', style: TextStyle(fontSize: 40)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    child: Icon(
+                      currentContent['icon'] as IconData,
+                      key: ValueKey<int>(_currentTextIndex),
+                      color: Colors.white,
+                      size: 28,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 500),
+                  transitionBuilder: (Widget child, Animation<double> animation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(0, 0.3),
+                          end: Offset.zero,
+                        ).animate(CurvedAnimation(
+                          parent: animation,
+                          curve: Curves.easeOut,
+                        )),
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: Text(
+                    currentContent['text'] as String,
+                    key: ValueKey<int>(_currentTextIndex),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
+                      letterSpacing: -0.5,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: List.generate(_promoContent.length, (index) {
+                    return AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      margin: const EdgeInsets.only(right: 6),
+                      width: index == _currentTextIndex ? 24 : 8,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: index == _currentTextIndex
+                            ? Colors.white
+                            : Colors.white.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    );
+                  }),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 500),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return FadeTransition(
-                opacity: animation,
-                child: SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(0, 0.5),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                ),
-              );
-            },
-            child: Text(
-              _promoTexts[_currentTextIndex],
-              key: ValueKey<int>(_currentTextIndex),
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                height: 1.3,
-              ),
+          const SizedBox(width: 16),
+          Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.15),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(
+              Icons.restaurant_menu_rounded,
+              color: Colors.white,
+              size: 40,
             ),
           ),
         ],
