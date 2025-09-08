@@ -106,107 +106,54 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
             ),
-            // Fixed content area
+            // Simple, overflow-safe content area
             Container(
-              height: 90, // Fixed height to prevent overflow
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Title and description
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          recipe.name,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15,
-                            height: 1.2,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          recipe.description,
-                          style: TextStyle(
-                            color: Colors.grey.shade600,
-                            fontSize: 11,
-                            height: 1.2,
-                          ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
+                  // Title only
+                  Text(
+                    recipe.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 12,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  // Chips row
+                  const SizedBox(height: 4),
+                  // Single row with time only
                   Row(
                     children: [
-                      Flexible(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.access_time_rounded,
-                                size: 12,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                              const SizedBox(width: 3),
-                              Text(
-                                '${recipe.time}m',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
+                      Icon(
+                        Icons.access_time_rounded,
+                        size: 8,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      const SizedBox(width: 2),
+                      Text(
+                        '${recipe.time}m',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: 8,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(width: 6),
-                      Flexible(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 6,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.amber.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.star_rounded,
-                                size: 12,
-                                color: Colors.amber,
-                              ),
-                              const SizedBox(width: 2),
-                              Text(
-                                recipe.rating.toString(),
-                                style: const TextStyle(
-                                  color: Colors.amber,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
+                      const SizedBox(width: 8),
+                      Icon(
+                        Icons.star_rounded,
+                        size: 8,
+                        color: Colors.amber,
+                      ),
+                      const SizedBox(width: 2),
+                      Text(
+                        recipe.rating.toString(),
+                        style: const TextStyle(
+                          color: Colors.amber,
+                          fontSize: 8,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],

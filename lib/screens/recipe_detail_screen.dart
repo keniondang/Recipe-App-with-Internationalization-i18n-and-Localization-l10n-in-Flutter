@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/recipe.dart';
-import '../widgets/info_chip.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key, required this.recipe});

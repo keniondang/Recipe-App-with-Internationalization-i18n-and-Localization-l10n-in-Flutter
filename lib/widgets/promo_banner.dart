@@ -129,13 +129,14 @@ class _PromoBannerState extends State<PromoBanner> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                Row(
+                // Progress indicators - wrap to handle small screens
+                Wrap(
                   children: List.generate(_promoContent.length, (index) {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.only(right: 6),
-                      width: index == _currentTextIndex ? 24 : 8,
-                      height: 4,
+                      margin: const EdgeInsets.only(right: 4, bottom: 2),
+                      width: index == _currentTextIndex ? 16 : 6,
+                      height: 3,
                       decoration: BoxDecoration(
                         color: index == _currentTextIndex
                             ? Colors.white
