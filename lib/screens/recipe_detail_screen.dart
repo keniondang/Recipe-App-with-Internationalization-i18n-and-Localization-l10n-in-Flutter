@@ -40,37 +40,6 @@ class RecipeDetailScreen extends StatelessWidget {
                 onPressed: () => Navigator.of(context).pop(),
               ),
             ),
-            actions: [
-              Container(
-                margin: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.favorite_border_rounded,
-                    color: Colors.black87,
-                    size: 22,
-                  ),
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Added to favorites!'),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
             flexibleSpace: FlexibleSpaceBar(
               background: Hero(
                 tag: 'recipe-${recipe.id}',
@@ -85,7 +54,7 @@ class RecipeDetailScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  child: Image.network(
+                  child: Image.asset(
                     recipe.image,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Container(
