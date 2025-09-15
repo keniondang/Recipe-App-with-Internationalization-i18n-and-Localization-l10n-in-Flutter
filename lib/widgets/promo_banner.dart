@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../l10n/arb/app_localizations.dart';
 
 class PromoBanner extends StatefulWidget {
   const PromoBanner({super.key});
@@ -12,24 +13,12 @@ class _PromoBannerState extends State<PromoBanner> {
   int _currentTextIndex = 0;
   Timer? _timer;
 
-  // List of texts to cycle through in the banner
-  static const List<Map<String, dynamic>> _promoContent = [
-    {
-      'text': 'Cook the best\nrecipes at home',
-      'icon': Icons.home_outlined,
-    },
-    {
-      'text': 'Discover new\nflavors every day',
-      'icon': Icons.explore_outlined,
-    },
-    {
-      'text': 'Simple recipes for\nyour busy life',
-      'icon': Icons.access_time_outlined,
-    },
-    {
-      'text': 'Impress your guests\nwith your skills',
-      'icon': Icons.star_outline_rounded,
-    }
+  // Icons to cycle through with the promo content
+  static const List<IconData> _promoIcons = [
+    Icons.home_outlined,
+    Icons.explore_outlined,
+    Icons.access_time_outlined,
+    Icons.star_outline_rounded,
   ];
 
   @override
@@ -39,7 +28,7 @@ class _PromoBannerState extends State<PromoBanner> {
     _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
       if (mounted) {
         setState(() {
-          _currentTextIndex = (_currentTextIndex + 1) % _promoContent.length;
+          _currentTextIndex = (_currentTextIndex + 1) % _promoIcons.length;
         });
       }
     });
@@ -51,9 +40,26 @@ class _PromoBannerState extends State<PromoBanner> {
     super.dispose();
   }
 
+  String _getCurrentPromoText(AppLocalizations l10n) {
+    switch (_currentTextIndex) {
+      case 0:
+        return l10n.promoBanner1;
+      case 1:
+        return l10n.promoBanner2;
+      case 2:
+        return l10n.promoBanner3;
+      case 3:
+        return l10n.promoBanner4;
+      default:
+        return l10n.promoBanner1;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final currentContent = _promoContent[_currentTextIndex];
+    final l10n = AppLocalizations.of(context)!;
+    final currentIcon = _promoIcons[_currentTextIndex];
+    final currentText = _getCurrentPromoText(l10n);
     
     return Container(
       width: double.infinity,
@@ -91,7 +97,7 @@ class _PromoBannerState extends State<PromoBanner> {
                   child: AnimatedSwitcher(
                     duration: const Duration(milliseconds: 300),
                     child: Icon(
-                      currentContent['icon'] as IconData,
+                      currentIcon,
                       key: ValueKey<int>(_currentTextIndex),
                       color: Colors.white,
                       size: 28,
@@ -117,7 +123,7 @@ class _PromoBannerState extends State<PromoBanner> {
                     );
                   },
                   child: Text(
-                    currentContent['text'] as String,
+                    currentText,
                     key: ValueKey<int>(_currentTextIndex),
                     style: const TextStyle(
                       color: Colors.white,
@@ -131,7 +137,7 @@ class _PromoBannerState extends State<PromoBanner> {
                 const SizedBox(height: 16),
                 // Progress indicators - wrap to handle small screens
                 Wrap(
-                  children: List.generate(_promoContent.length, (index) {
+                  children: List.generate(_promoIcons.length, (index) {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.only(right: 4, bottom: 2),

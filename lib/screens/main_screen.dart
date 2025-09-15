@@ -4,6 +4,7 @@ import '../models/recipe.dart';
 import '../widgets/fade_in_animation.dart';
 import '../widgets/promo_banner.dart';
 import '../widgets/recipe_card.dart';
+import '../l10n/arb/app_localizations.dart';
 import 'settings_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -35,12 +36,14 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   bool _showFilterOverlay = false;
 
   List<Recipe> get _filteredRecipes {
+    final l10n = AppLocalizations.of(context)!;
     List<Recipe> recipes = mockRecipes;
 
     if (_searchQuery.isNotEmpty) {
       return recipes
           .where((recipe) =>
-              recipe.name.toLowerCase().contains(_searchQuery.toLowerCase()))
+              recipe.getLocalizedName(l10n).toLowerCase().contains(_searchQuery.toLowerCase()) ||
+              recipe.getLocalizedDescription(l10n).toLowerCase().contains(_searchQuery.toLowerCase()))
           .toList();
     }
 
@@ -151,6 +154,24 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     });
   }
 
+  String _getCuisineDisplayName(String cuisineId) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (cuisineId) {
+      case 'all':
+        return l10n.cuisineAll;
+      case 'vietnamese':
+        return l10n.cuisineVietnamese;
+      case 'western':
+        return l10n.cuisineWestern;
+      case 'indonesian':
+        return l10n.cuisineIndonesian;
+      case 'chinese':
+        return l10n.cuisineChinese;
+      default:
+        return cuisineId;
+    }
+  }
+
   @override
   void dispose() {
     _searchController.dispose();
@@ -160,6 +181,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   }
 
   Widget _buildHomeScreen() {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Stack(
       children: [
         // Main content
@@ -197,7 +220,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Categories',
+                          l10n.categoriesTitle,
                           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -206,9 +229,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         if (_selectedCuisineId != 'all')
                           TextButton(
                             onPressed: () => _selectCuisine('all'),
-                            child: const Text(
-                              'View All',
-                              style: TextStyle(
+                            child: Text(
+                              l10n.viewAllButton,
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 14,
                               ),
@@ -237,7 +260,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         final isSelected = category.id == _selectedCuisineId;
                         return FilterChip(
                           label: Text(
-                            category.name,
+                            _getCuisineDisplayName(category.id),
                             style: TextStyle(
                               color: isSelected ? Colors.white : const Color(0xFF374151),
                               fontWeight: FontWeight.w600,
@@ -285,14 +308,14 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          'No recipes found',
+                          l10n.noRecipesFound,
                           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: Colors.grey.shade600,
                           ),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Try searching with different keywords',
+                          l10n.searchDifferentKeywords,
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
@@ -327,7 +350,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         crossAxisCount: crossAxisCount,
                         crossAxisSpacing: 16,
                         mainAxisSpacing: 20,
-                        childAspectRatio: 0.85, // Increased from 0.75 to make cards shorter
+                        childAspectRatio: 0.85,
                       ),
                     ),
                   );
@@ -367,11 +390,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       children: [
                         // Title (only show when categories are visible)
                         if (_showCategories)
-                          const FadeInAnimation(
-                            delay: Duration(milliseconds: 200),
+                          FadeInAnimation(
+                            delay: const Duration(milliseconds: 200),
                             child: Text(
-                              'What are you\ncooking today?',
-                              style: TextStyle(
+                              l10n.homeTitle,
+                              style: const TextStyle(
                                 fontSize: 32,
                                 fontWeight: FontWeight.bold,
                                 height: 1.2,
@@ -401,7 +424,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                                   controller: _searchController,
                                   onChanged: (value) => setState(() => _searchQuery = value),
                                   decoration: InputDecoration(
-                                    hintText: 'Search for recipes...',
+                                    hintText: l10n.searchHint,
                                     hintStyle: TextStyle(
                                       color: Colors.grey.shade500,
                                       fontWeight: FontWeight.w400,
@@ -499,11 +522,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Filter by Cuisine',
-                      style: TextStyle(
+                      l10n.filterByCuisine,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -512,7 +535,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   ...mockCuisines.map((cuisine) {
                     final isSelected = cuisine.id == _selectedCuisineId;
                     return ListTile(
-                      title: Text(cuisine.name),
+                      title: Text(_getCuisineDisplayName(cuisine.id)),
                       trailing: isSelected
                           ? Icon(Icons.check, color: Theme.of(context).colorScheme.primary)
                           : null,
@@ -533,6 +556,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
@@ -586,7 +611,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     size: 24,
                   ),
                 ),
-                label: 'Home',
+                label: l10n.navigationHome,
               ),
               BottomNavigationBarItem(
                 icon: Container(
@@ -602,7 +627,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     size: 24,
                   ),
                 ),
-                label: 'Settings',
+                label: l10n.navigationSettings,
               ),
             ],
           ),

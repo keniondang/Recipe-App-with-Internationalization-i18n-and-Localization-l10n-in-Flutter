@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/recipe.dart';
+import '../l10n/arb/app_localizations.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
   const RecipeDetailScreen({super.key, required this.recipe});
@@ -8,6 +9,8 @@ class RecipeDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -85,9 +88,51 @@ class RecipeDetailScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Updated timestamp (NEW)
+                    if (recipe.updatedAt != null || recipe.createdAt != null) ...[
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade50,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: Colors.blue.shade200),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.access_time_rounded,
+                              size: 14,
+                              color: Colors.blue.shade600,
+                            ),
+                            const SizedBox(width: 6),
+                            if (recipe.updatedAt != null)
+                              Text(
+                                l10n.updatedOn(recipe.getFormattedRelativeTime(context)),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue.shade700,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              )
+                            else if (recipe.createdAt != null)
+                              Text(
+                                l10n.createdOn(recipe.getFormattedCreatedDate(context)),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue.shade700,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+                    
                     // Recipe Title and Description
                     Text(
-                      recipe.name,
+                      recipe.getLocalizedName(l10n),
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 28,
@@ -96,7 +141,7 @@ class RecipeDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      recipe.description,
+                      recipe.getLocalizedDescription(l10n),
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontSize: 16,
                         height: 1.5,
@@ -104,7 +149,7 @@ class RecipeDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
 
-                    // Info Chips
+                    // Info Chips with proper formatting
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
@@ -117,8 +162,8 @@ class RecipeDetailScreen extends StatelessWidget {
                           _buildInfoItem(
                             context,
                             Icons.access_time_rounded,
-                            '${recipe.time} min',
-                            'Cook time',
+                            recipe.getFormattedTime(context),
+                            l10n.cookTime,
                           ),
                           Container(
                             width: 1,
@@ -128,8 +173,8 @@ class RecipeDetailScreen extends StatelessWidget {
                           _buildInfoItem(
                             context,
                             Icons.people_outline_rounded,
-                            '${recipe.servings}',
-                            'Servings',
+                            recipe.getFormattedServings(context),
+                            l10n.servings,
                           ),
                           Container(
                             width: 1,
@@ -139,8 +184,148 @@ class RecipeDetailScreen extends StatelessWidget {
                           _buildInfoItem(
                             context,
                             Icons.star_rounded,
-                            '${recipe.rating}',
-                            'Rating',
+                            recipe.getFormattedRating(context),
+                            l10n.rating,
+                          ),
+                        ],
+                      ),
+                    ),
+                    
+                    // Price Information Section
+                    if (recipe.hasPrice) ...[
+                      const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: _getPriceColor(recipe.priceCategory).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: _getPriceColor(recipe.priceCategory).withOpacity(0.3),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  _getPriceIcon(recipe.priceCategory),
+                                  color: _getPriceColor(recipe.priceCategory),
+                                  size: 20,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  l10n.estimatedCost,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: _getPriceColor(recipe.priceCategory),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      l10n.totalIngredientsPrice,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey.shade600,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      recipe.getFormattedPrice(context),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: _getPriceColor(recipe.priceCategory),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      l10n.costPerServing,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey.shade600,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      _getPricePerServing(recipe, context),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: _getPriceColor(recipe.priceCategory),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              decoration: BoxDecoration(
+                                color: _getPriceColor(recipe.priceCategory).withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                _getPriceCategoryText(recipe.priceCategory, l10n),
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: _getPriceColor(recipe.priceCategory),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                    
+                    const SizedBox(height: 32),
+
+                    // Nutrition info with proper formatting
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.green.shade50,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: Colors.green.shade200),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.local_fire_department_rounded,
+                            color: Colors.orange.shade600,
+                            size: 20,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '${recipe.getFormattedCalories(context)} ${l10n.caloriesLong}',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.green.shade700,
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Text(
+                            l10n.nutritionPerServing,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.green.shade600,
+                            ),
                           ),
                         ],
                       ),
@@ -149,7 +334,7 @@ class RecipeDetailScreen extends StatelessWidget {
 
                     // Ingredients Section
                     Text(
-                      'Ingredients',
+                      l10n.ingredients,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
@@ -202,27 +387,12 @@ class RecipeDetailScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 16),
                                 Expanded(
-                                  child: RichText(
-                                    text: TextSpan(
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black87,
-                                        height: 1.4,
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: ingredient['quantity'],
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: ' ${ingredient['name']}',
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ],
+                                  child: Text(
+                                    ingredient.getLocalizedText(l10n),
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black87,
+                                      height: 1.4,
                                     ),
                                   ),
                                 ),
@@ -236,14 +406,15 @@ class RecipeDetailScreen extends StatelessWidget {
 
                     // Instructions Section
                     Text(
-                      'Instructions',
+                      l10n.instructions,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
                     ),
                     const SizedBox(height: 16),
-                    ...List.generate(recipe.steps.length, (index) {
+                    ...List.generate(recipe.getLocalizedSteps(l10n).length, (index) {
+                      final steps = recipe.getLocalizedSteps(l10n);
                       return Container(
                         margin: const EdgeInsets.only(bottom: 20),
                         child: Row(
@@ -286,7 +457,7 @@ class RecipeDetailScreen extends StatelessWidget {
                                   ),
                                 ),
                                 child: Text(
-                                  recipe.steps[index],
+                                  steps[index],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     height: 1.5,
@@ -345,5 +516,52 @@ class RecipeDetailScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+  
+  // Helper methods for price display
+  Color _getPriceColor(PriceCategory category) {
+    switch (category) {
+      case PriceCategory.budget:
+        return Colors.green;
+      case PriceCategory.moderate:
+        return Colors.orange;
+      case PriceCategory.premium:
+        return Colors.red;
+      case PriceCategory.unknown:
+        return Colors.grey;
+    }
+  }
+  
+  IconData _getPriceIcon(PriceCategory category) {
+    switch (category) {
+      case PriceCategory.budget:
+        return Icons.monetization_on_outlined;
+      case PriceCategory.moderate:
+        return Icons.payments_outlined;
+      case PriceCategory.premium:
+        return Icons.diamond_outlined;
+      case PriceCategory.unknown:
+        return Icons.help_outline;
+    }
+  }
+  
+  // FIXED: Now uses proper localization method
+  String _getPriceCategoryText(PriceCategory category, AppLocalizations l10n) {
+    switch (category) {
+      case PriceCategory.budget:
+        return l10n.budgetFriendly;
+      case PriceCategory.moderate:
+        return l10n.moderatePrice;
+      case PriceCategory.premium:
+        return l10n.premiumRecipe;
+      case PriceCategory.unknown:
+        return l10n.priceNotAvailable;
+    }
+  }
+  
+  // FIXED: Now uses the Recipe's proper method
+  String _getPricePerServing(Recipe recipe, BuildContext context) {
+    if (!recipe.hasPrice) return '';
+    return recipe.getFormattedPricePerServing(context);
   }
 }

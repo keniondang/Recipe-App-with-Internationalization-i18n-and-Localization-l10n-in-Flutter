@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/recipe.dart';
 import '../screens/recipe_detail_screen.dart';
+import '../l10n/arb/app_localizations.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({super.key, required this.recipe});
@@ -8,161 +9,217 @@ class RecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      elevation: 3,
-      shadowColor: Colors.black.withOpacity(0.1),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: InkWell(
-        onTap: () => Navigator.push(
-          context,
-          PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                RecipeDetailScreen(recipe: recipe),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              const begin = Offset(1.0, 0.0);
-              const end = Offset.zero;
-              const curve = Curves.easeInOutCubic;
-
-              var tween = Tween(begin: begin, end: end).chain(
-                CurveTween(curve: curve),
-              );
-
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            },
-            transitionDuration: const Duration(milliseconds: 300),
+    final l10n = AppLocalizations.of(context)!;
+    
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => RecipeDetailScreen(recipe: recipe),
           ),
+        );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 12,
+              offset: const Offset(0, 4),
+            ),
+          ],
         ),
-        borderRadius: BorderRadius.circular(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image section - takes up most of the space
+            // Recipe Image with formatted rating and price
             Expanded(
-              flex: 5,
+              flex: 3,
               child: Container(
-                width: double.infinity,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
                 ),
-                child: Hero(
-                  tag: 'recipe-${recipe.id}',
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(20),
-                    ),
-                    child: Image.asset(
-                      recipe.image,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          color: Colors.grey.shade100,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Icon(
-                                  Icons.restaurant_menu_rounded,
-                                  color: Theme.of(context).colorScheme.primary,
-                                  size: 24,
-                                ),
+                child: Stack(
+                  children: [
+                    Hero(
+                      tag: 'recipe-${recipe.id}',
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                        child: Image.asset(
+                          recipe.image,
+                          height: double.infinity,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => Container(
+                            color: Colors.grey.shade200,
+                            child: const Center(
+                              child: Icon(
+                                Icons.image_not_supported_outlined,
+                                color: Colors.grey,
+                                size: 32,
                               ),
-                              const SizedBox(height: 6),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    // Rating badge with proper number formatting
+                    Positioned(
+                      top: 12,
+                      right: 12,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.7),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.star_rounded,
+                              color: Colors.amber,
+                              size: 14,
+                            ),
+                            const SizedBox(width: 2),
+                            Text(
+                              recipe.getFormattedRating(context),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Price badge
+                    if (recipe.hasPrice)
+                      Positioned(
+                        top: 12,
+                        left: 12,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: _getPriceColor(recipe.priceCategory).withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                _getPriceIcon(recipe.priceCategory),
+                                color: Colors.white,
+                                size: 12,
+                              ),
+                              const SizedBox(width: 4),
                               Text(
-                                recipe.name,
-                                style: TextStyle(
-                                  color: Colors.grey.shade600,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
+                                recipe.getFormattedPrice(context),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                                textAlign: TextAlign.center,
-                                maxLines: 2,
                               ),
                             ],
                           ),
-                        );
-                      },
-                    ),
-                  ),
+                        ),
+                      ),
+                  ],
                 ),
               ),
             ),
-            // Content section - compact
+            
+            // Recipe Info with formatted numbers and price
             Expanded(
-              flex: 3,
+              flex: 2,
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title
+                    // Recipe name
                     Text(
-                      recipe.name,
+                      recipe.getLocalizedName(l10n),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.black87,
                       ),
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 3),
+                    const SizedBox(height: 8),
                     
-                    // Description - limited space
+                    // Recipe description
                     Expanded(
                       child: Text(
-                        recipe.description,
+                        recipe.getLocalizedDescription(l10n),
                         style: TextStyle(
                           color: Colors.grey.shade600,
-                          fontSize: 10,
-                          height: 1.2,
+                          fontSize: 12,
+                          height: 1.3,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     
-                    // Time and rating row - compact
+                    const SizedBox(height: 12),
+                    
+                    // Time, servings, and calories info with proper formatting
                     Row(
                       children: [
                         Icon(
                           Icons.access_time_rounded,
-                          size: 11,
-                          color: Theme.of(context).colorScheme.primary,
+                          size: 14,
+                          color: Colors.grey.shade500,
                         ),
-                        const SizedBox(width: 2),
+                        const SizedBox(width: 4),
                         Text(
-                          '${recipe.time}m',
+                          recipe.getFormattedTimeShort(context),
                           style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w600,
+                            color: Colors.grey.shade600,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: 12),
                         Icon(
-                          Icons.star_rounded,
-                          size: 11,
-                          color: Colors.amber,
+                          Icons.people_outline_rounded,
+                          size: 14,
+                          color: Colors.grey.shade500,
                         ),
-                        const SizedBox(width: 2),
+                        const SizedBox(width: 4),
                         Text(
-                          recipe.rating.toString(),
-                          style: const TextStyle(
-                            color: Colors.amber,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w600,
+                          recipe.getFormattedServings(context),
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const Spacer(),
+                        // Show calories with proper formatting
+                        Text(
+                          '${recipe.getFormattedCalories(context)} ${l10n.calories}',
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
@@ -175,5 +232,32 @@ class RecipeCard extends StatelessWidget {
         ),
       ),
     );
+  }
+  
+  // Helper methods for price display
+  Color _getPriceColor(PriceCategory category) {
+    switch (category) {
+      case PriceCategory.budget:
+        return Colors.green;
+      case PriceCategory.moderate:
+        return Colors.orange;
+      case PriceCategory.premium:
+        return Colors.red;
+      case PriceCategory.unknown:
+        return Colors.grey;
+    }
+  }
+  
+  IconData _getPriceIcon(PriceCategory category) {
+    switch (category) {
+      case PriceCategory.budget:
+        return Icons.monetization_on_outlined;
+      case PriceCategory.moderate:
+        return Icons.payments_outlined;
+      case PriceCategory.premium:
+        return Icons.diamond_outlined;
+      case PriceCategory.unknown:
+        return Icons.help_outline;
+    }
   }
 }

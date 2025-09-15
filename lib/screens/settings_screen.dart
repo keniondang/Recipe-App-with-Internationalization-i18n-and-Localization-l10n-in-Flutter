@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../l10n/arb/app_localizations.dart';
+import '../providers/locale_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFB),
       body: SafeArea(
@@ -16,7 +21,7 @@ class SettingsScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Settings',
+                    l10n.settingsTitle,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
@@ -33,13 +38,13 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   _buildSettingsSection(
                     context,
-                    'Preferences',
+                    l10n.preferencesSection,
                     [
                       _buildSettingsTile(
                         context,
                         icon: Icons.language_rounded,
-                        title: 'Language',
-                        subtitle: 'English',
+                        title: l10n.languageSetting,
+                        subtitle: _getCurrentLanguageDisplay(context),
                         onTap: () {
                           _showLanguageDialog(context);
                         },
@@ -47,8 +52,8 @@ class SettingsScreen extends StatelessWidget {
                       _buildSettingsTile(
                         context,
                         icon: Icons.notifications_rounded,
-                        title: 'Notifications',
-                        subtitle: 'Manage your notifications',
+                        title: l10n.notificationsSetting,
+                        subtitle: l10n.notificationsSubtitle,
                         onTap: () {
                           _showNotificationSettings(context);
                         },
@@ -56,8 +61,8 @@ class SettingsScreen extends StatelessWidget {
                       _buildSettingsTile(
                         context,
                         icon: Icons.palette_rounded,
-                        title: 'Theme',
-                        subtitle: 'Light mode',
+                        title: l10n.themeSetting,
+                        subtitle: l10n.themeSubtitle,
                         onTap: () {
                           _showThemeOptions(context);
                         },
@@ -67,13 +72,13 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   _buildSettingsSection(
                     context,
-                    'About',
+                    l10n.aboutSection,
                     [
                       _buildSettingsTile(
                         context,
                         icon: Icons.info_rounded,
-                        title: 'App Information',
-                        subtitle: 'Version 1.0.0',
+                        title: l10n.appInfoSetting,
+                        subtitle: l10n.appInfoSubtitle,
                         onTap: () {
                           _showAboutDialog(context);
                         },
@@ -81,8 +86,8 @@ class SettingsScreen extends StatelessWidget {
                       _buildSettingsTile(
                         context,
                         icon: Icons.help_rounded,
-                        title: 'Help & Support',
-                        subtitle: 'Get help with the app',
+                        title: l10n.helpSetting,
+                        subtitle: l10n.helpSubtitle,
                         onTap: () {
                           _showHelpDialog(context);
                         },
@@ -90,8 +95,8 @@ class SettingsScreen extends StatelessWidget {
                       _buildSettingsTile(
                         context,
                         icon: Icons.star_rounded,
-                        title: 'Rate App',
-                        subtitle: 'Share your feedback',
+                        title: l10n.rateSetting,
+                        subtitle: l10n.rateSubtitle,
                         onTap: () {
                           _showRatingDialog(context);
                         },
@@ -106,6 +111,24 @@ class SettingsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getCurrentLanguageDisplay(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context);
+    
+    switch (locale.languageCode) {
+      case 'en':
+        return l10n.englishLanguage;
+      case 'vi':
+        return l10n.vietnameseLanguage;
+      case 'de':
+        return l10n.germanLanguage;
+      case 'id':
+        return l10n.indonesianLanguage;
+      default:
+        return l10n.englishLanguage;
+    }
   }
 
   Widget _buildSettingsSection(BuildContext context, String title, List<Widget> children) {
@@ -205,86 +228,129 @@ class SettingsScreen extends StatelessWidget {
   }
 
   void _showLanguageDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
+    String? selectedLanguageCode = localeProvider.currentLocale.languageCode;
+    
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          title: const Text('Select Language'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: const Text('English'),
-                leading: Radio<String>(
-                  value: 'en',
-                  groupValue: 'en',
-                  onChanged: (value) {},
-                ),
+      builder: (BuildContext dialogContext) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              title: Text(l10n.selectLanguageTitle),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildLanguageOption(
+                    context,
+                    'en',
+                    l10n.englishLanguage,
+                    selectedLanguageCode == 'en',
+                    (value) => setState(() => selectedLanguageCode = value),
+                  ),
+                  _buildLanguageOption(
+                    context,
+                    'vi',
+                    l10n.vietnameseLanguage,
+                    selectedLanguageCode == 'vi',
+                    (value) => setState(() => selectedLanguageCode = value),
+                  ),
+                  _buildLanguageOption(
+                    context,
+                    'de',
+                    l10n.germanLanguage,
+                    selectedLanguageCode == 'de',
+                    (value) => setState(() => selectedLanguageCode = value),
+                  ),
+                  _buildLanguageOption(
+                    context,
+                    'id',
+                    l10n.indonesianLanguage,
+                    selectedLanguageCode == 'id',
+                    (value) => setState(() => selectedLanguageCode = value),
+                  ),
+                ],
               ),
-              ListTile(
-                title: const Text('Vietnamese'),
-                leading: Radio<String>(
-                  value: 'vi',
-                  groupValue: 'en',
-                  onChanged: (value) {},
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(dialogContext).pop(),
+                  child: Text(l10n.cancelButton),
                 ),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Language will be implemented with internationalization!')),
-                );
-              },
-              child: const Text('Apply'),
-            ),
-          ],
+                ElevatedButton(
+                  onPressed: () {
+                    if (selectedLanguageCode != null) {
+                      localeProvider.setLocale(Locale(selectedLanguageCode!));
+                    }
+                    Navigator.of(dialogContext).pop();
+                  },
+                  child: Text(l10n.applyButton),
+                ),
+              ],
+            );
+          },
         );
       },
     );
   }
 
+  Widget _buildLanguageOption(
+    BuildContext context, 
+    String languageCode, 
+    String languageName, 
+    bool isSelected,
+    Function(String?) onChanged,
+  ) {
+    return ListTile(
+      title: Text(languageName),
+      leading: Radio<String>(
+        value: languageCode,
+        groupValue: isSelected ? languageCode : null,
+        onChanged: onChanged,
+      ),
+      onTap: () => onChanged(languageCode),
+    );
+  }
+
   void _showNotificationSettings(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Notification settings will be implemented here!')),
+      SnackBar(content: Text(l10n.notificationSettingsPlaceholder)),
     );
   }
 
   void _showThemeOptions(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Theme options will be implemented here!')),
+      SnackBar(content: Text(l10n.themeOptionsPlaceholder)),
     );
   }
 
   void _showAboutDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     showAboutDialog(
       context: context,
-      applicationName: 'Recipe App',
-      applicationVersion: '1.0.0',
-      applicationLegalese: '© 2025 Recipe App. All rights reserved.',
+      applicationName: l10n.appName,
+      applicationVersion: l10n.appVersion,
+      applicationLegalese: l10n.appLegalese,
       children: [
-        const Text('A simple and elegant recipe app built with Flutter.'),
+        Text(l10n.appDescription),
       ],
     );
   }
 
   void _showHelpDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Help & Support will be implemented here!')),
+      SnackBar(content: Text(l10n.helpSupportPlaceholder)),
     );
   }
 
   void _showRatingDialog(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Thank you! Rating feature will be implemented here!')),
+      SnackBar(content: Text(l10n.ratingThankYou)),
     );
   }
 }

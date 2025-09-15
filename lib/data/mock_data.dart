@@ -10,264 +10,311 @@ final List<Cuisine> mockCuisines = [
   const Cuisine(id: 'chinese', name: 'Chinese'),
 ];
 
-// List of all available recipes with local assets
+// List of all available recipes with localization keys, dates, and prices
 final List<Recipe> mockRecipes = [
   // WESTERN CUISINE
-  const Recipe(
+  Recipe(
     id: 'beef_steak',
-    name: 'Beef Steak',
+    nameKey: 'beefSteakName',
     image: 'assets/images/recipes/beef_steak.jpg',
     calories: 450,
     time: 25,
     rating: 4.6,
-    description: 'Perfectly grilled beef steak with herbs.',
+    descriptionKey: 'beefSteakDescription',
     servings: 2,
     cuisine: 'western',
-    ingredients: [
-      {'quantity': '2 pieces', 'name': 'beef steaks (8oz each)'},
-      {'quantity': '2 tbsp', 'name': 'olive oil'},
-      {'quantity': '1 tsp', 'name': 'salt'},
-      {'quantity': '1/2 tsp', 'name': 'black pepper'},
+    createdAt: DateTime.now().subtract(const Duration(days: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(hours: 2)),
+    basePrice: 18.50, // Premium price for quality beef
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'beefSteakIngredient1Quantity',
+        nameKey: 'beefSteakIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'beefSteakIngredient2Quantity',
+        nameKey: 'beefSteakIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'beefSteakIngredient3Quantity',
+        nameKey: 'beefSteakIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'beefSteakIngredient4Quantity',
+        nameKey: 'beefSteakIngredient4Name',
+      ),
     ],
-    steps: [
-      'Season steaks with salt and pepper on both sides.',
-      'Heat olive oil in a cast iron pan over high heat.',
-      'Sear steaks for 3-4 minutes each side for medium-rare.',
-      'Add butter, garlic, and rosemary to the pan.',
-      'Baste steaks with herb butter for extra flavor.',
-      'Rest for 5 minutes before serving.',
+    stepKeys: const [
+      'beefSteakStep1',
+      'beefSteakStep2',
+      'beefSteakStep3',
+      'beefSteakStep4',
+      'beefSteakStep5',
+      'beefSteakStep6',
     ],
   ),
+  
   // VIETNAMESE CUISINE
-  const Recipe(
+  Recipe(
     id: 'pho_bo',
-    name: 'Pho Bo',
+    nameKey: 'phoBoName',
     image: 'assets/images/recipes/pho_bo.jpg',
     calories: 280,
     time: 45,
     rating: 4.8,
-    description: 'Traditional Vietnamese beef noodle soup.',
+    descriptionKey: 'phoBoDescription',
     servings: 4,
     cuisine: 'vietnamese',
-    ingredients: [
-      {'quantity': '1 kg', 'name': 'beef bones'},
-      {'quantity': '400g', 'name': 'rice noodles (bánh phở)'},
-      {'quantity': '3 pieces', 'name': 'star anise'},
-      {'quantity': '1 stick', 'name': 'cinnamon'},
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 30)),
+    basePrice: 12.75, // Moderate price
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'phoBoIngredient1Quantity',
+        nameKey: 'phoBoIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'phoBoIngredient2Quantity',
+        nameKey: 'phoBoIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'phoBoIngredient3Quantity',
+        nameKey: 'phoBoIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'phoBoIngredient4Quantity',
+        nameKey: 'phoBoIngredient4Name',
+      ),
     ],
-    steps: [
-      'Char onion and ginger over open flame until fragrant.',
-      'Boil beef bones with spices for 3 hours to make broth.',
-      'Cook rice noodles according to package instructions.',
-      'Slice beef thinly for quick cooking.',
-      'Assemble bowls with noodles and raw beef.',
-      'Pour hot broth over to cook beef and garnish with herbs.',
+    stepKeys: const [
+      'phoBoStep1',
+      'phoBoStep2',
+      'phoBoStep3',
+      'phoBoStep4',
+      'phoBoStep5',
+      'phoBoStep6',
     ],
   ),
-  const Recipe(
+  
+  Recipe(
     id: 'banh_mi',
-    name: 'Vietnamese Banh Mi',
+    nameKey: 'banhMiName',
     image: 'assets/images/recipes/banh_mi.jpg',
     calories: 380,
     time: 25,
     rating: 4.6,
-    description: 'Crispy baguette with Vietnamese pickled vegetables.',
+    descriptionKey: 'banhMiDescription',
     servings: 2,
     cuisine: 'vietnamese',
-    ingredients: [
-      {'quantity': '2', 'name': 'French baguettes'},
-      {'quantity': '200g', 'name': 'Vietnamese ham'},
-      {'quantity': '100g', 'name': 'pickled carrots'},
-      {'quantity': '1/4 cup', 'name': 'cilantro leaves'},
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(hours: 12)),
+    basePrice: 4.25, // Budget friendly
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'banhMiIngredient1Quantity',
+        nameKey: 'banhMiIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'banhMiIngredient2Quantity',
+        nameKey: 'banhMiIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'banhMiIngredient3Quantity',
+        nameKey: 'banhMiIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'banhMiIngredient4Quantity',
+        nameKey: 'banhMiIngredient4Name',
+      ),
     ],
-    steps: [
-      'Slice baguettes lengthwise, hollow slightly.',
-      'Spread mayonnaise and pâté inside.',
-      'Layer with Vietnamese ham and cucumber.',
-      'Add pickled vegetables and cilantro.',
-      'Season with soy sauce and chili.',
-      'Press sandwich lightly and serve fresh.',
+    stepKeys: const [
+      'banhMiStep1',
+      'banhMiStep2',
+      'banhMiStep3',
+      'banhMiStep4',
+      'banhMiStep5',
+      'banhMiStep6',
     ],
   ),
-  const Recipe(
+  
+  Recipe(
     id: 'bun_bo_hue',
-    name: 'Bun Bo Hue',
+    nameKey: 'bunBoHueName',
     image: 'assets/images/recipes/bun_bo_hue.jpg',
     calories: 420,
     time: 60,
     rating: 4.8,
-    description: 'Spicy beef noodle soup from Hue.',
+    descriptionKey: 'bunBoHueDescription',
     servings: 4,
     cuisine: 'vietnamese',
-    ingredients: [
-      {'quantity': '400g', 'name': 'thick round rice noodles'},
-      {'quantity': '500g', 'name': 'beef shank'},
-      {'quantity': '200g', 'name': 'pork hock'},
-      {'quantity': '3 tbsp', 'name': 'shrimp paste'},
-      {'quantity': '2 tbsp', 'name': 'chili oil'},
+    createdAt: DateTime.now().subtract(const Duration(days: 22)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    basePrice: 14.90, // Moderate price
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'bunBoHueIngredient1Quantity',
+        nameKey: 'bunBoHueIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'bunBoHueIngredient2Quantity',
+        nameKey: 'bunBoHueIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'bunBoHueIngredient3Quantity',
+        nameKey: 'bunBoHueIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'bunBoHueIngredient4Quantity',
+        nameKey: 'bunBoHueIngredient4Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'bunBoHueIngredient5Quantity',
+        nameKey: 'bunBoHueIngredient5Name',
+      ),
     ],
-    steps: [
-      'Boil beef and pork bones for rich broth.',
-      'Add lemongrass, onions, and spices to broth.',
-      'Cook thick rice noodles until tender.',
-      'Slice cooked beef and pork thinly.',
-      'Season broth with shrimp paste and chili oil.',
-      'Serve with fresh herbs and lime wedges.',
+    stepKeys: const [
+      'bunBoHueStep1',
+      'bunBoHueStep2',
+      'bunBoHueStep3',
+      'bunBoHueStep4',
+      'bunBoHueStep5',
+      'bunBoHueStep6',
     ],
   ),
+  
   // INDONESIAN CUISINE
-  const Recipe(
-    id: 'nasi_goreng',
-    name: 'Nasi Goreng',
-    image: 'assets/images/recipes/nasi_goreng.jpg',
-    calories: 350,
-    time: 30,
-    rating: 4.7,
-    description: 'Indonesian fried rice with aromatic spices.',
-    servings: 4,
-    cuisine: 'indonesian',
-    ingredients: [
-      {'quantity': '4 cups', 'name': 'cooked rice, day-old'},
-      {'quantity': '2 tbsp', 'name': 'shrimp paste (terasi)'},
-      {'quantity': '3 tbsp', 'name': 'sweet soy sauce (kecap manis)'},
-      {'quantity': '2', 'name': 'eggs'},
-    ],
-    steps: [
-      'Prepare spice paste by grinding chilies, garlic, shallots.',
-      'Scramble eggs and set aside.',
-      'Stir-fry spice paste until fragrant.',
-      'Add rice and seasonings, mix well.',
-      'Add vegetables and scrambled eggs.',
-      'Garnish with fried shallots and serve.',
-    ],
-  ),
-  const Recipe(
+  Recipe(
     id: 'rendang',
-    name: 'Beef Rendang',
+    nameKey: 'rendangName',
     image: 'assets/images/recipes/rendang.jpg',
     calories: 450,
     time: 90,
     rating: 4.9,
-    description: 'Indonesian slow-cooked spicy beef curry.',
+    descriptionKey: 'rendangDescription',
     servings: 4,
     cuisine: 'indonesian',
-    ingredients: [
-      {'quantity': '800g', 'name': 'beef chuck, cubed'},
-      {'quantity': '400ml', 'name': 'coconut milk'},
-      {'quantity': '4 tbsp', 'name': 'rendang spice paste'},
-      {'quantity': '3', 'name': 'lemongrass stalks'},
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(hours: 6)),
+    basePrice: 16.30, // Premium due to long cooking time and spices
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'rendangIngredient1Quantity',
+        nameKey: 'rendangIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'rendangIngredient2Quantity',
+        nameKey: 'rendangIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'rendangIngredient3Quantity',
+        nameKey: 'rendangIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'rendangIngredient4Quantity',
+        nameKey: 'rendangIngredient4Name',
+      ),
     ],
-    steps: [
-      'Brown beef cubes in a heavy pot.',
-      'Add spice paste and cook until fragrant.',
-      'Pour in coconut milk and add aromatics.',
-      'Simmer on low heat for 2 hours.',
-      'Continue cooking until sauce thickens.',
-      'Stir frequently in final 30 minutes until dark.',
-    ],
-  ),
-  const Recipe(
-    id: 'gado_gado',
-    name: 'Gado Gado',
-    image: 'assets/images/recipes/gado_gado.jpg',
-    calories: 280,
-    time: 25,
-    rating: 4.6,
-    description: 'Indonesian salad with peanut sauce.',
-    servings: 4,
-    cuisine: 'indonesian',
-    ingredients: [
-      {'quantity': '200g', 'name': 'mixed vegetables (cabbage, bean sprouts)'},
-      {'quantity': '2', 'name': 'hard-boiled eggs'},
-      {'quantity': '100g', 'name': 'tofu, fried'},
-      {'quantity': '4 tbsp', 'name': 'peanut sauce'},
-      {'quantity': '2', 'name': 'rice cakes (ketupat)'},
-    ],
-    steps: [
-      'Blanch vegetables until crisp-tender.',
-      'Fry tofu until golden brown.',
-      'Prepare peanut sauce with palm sugar and tamarind.',
-      'Arrange vegetables, tofu, and eggs on plate.',
-      'Drizzle generous amount of peanut sauce.',
-      'Serve with rice cakes and keropuk crackers.',
+    stepKeys: const [
+      'rendangStep1',
+      'rendangStep2',
+      'rendangStep3',
+      'rendangStep4',
+      'rendangStep5',
+      'rendangStep6',
     ],
   ),
-  const Recipe(
+  
+  Recipe(
     id: 'satay',
-    name: 'Chicken Satay',
+    nameKey: 'satayName',
     image: 'assets/images/recipes/satay.jpg',
     calories: 320,
     time: 40,
     rating: 4.7,
-    description: 'Grilled chicken skewers with peanut sauce.',
+    descriptionKey: 'satayDescription',
     servings: 4,
     cuisine: 'indonesian',
-    ingredients: [
-      {'quantity': '600g', 'name': 'chicken thigh, cubed'},
-      {'quantity': '2 tbsp', 'name': 'coconut milk'},
-      {'quantity': '1 tbsp', 'name': 'palm sugar'},
-      {'quantity': '20', 'name': 'bamboo skewers'},
-      {'quantity': '1/2 cup', 'name': 'peanut sauce'},
+    createdAt: DateTime.now().subtract(const Duration(days: 12)),
+    updatedAt: DateTime.now().subtract(const Duration(hours: 18)),
+    basePrice: 8.75, // Moderate price
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'satayIngredient1Quantity',
+        nameKey: 'satayIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'satayIngredient2Quantity',
+        nameKey: 'satayIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'satayIngredient3Quantity',
+        nameKey: 'satayIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'satayIngredient4Quantity',
+        nameKey: 'satayIngredient4Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'satayIngredient5Quantity',
+        nameKey: 'satayIngredient5Name',
+      ),
     ],
-    steps: [
-      'Marinate chicken in coconut milk and spices.',
-      'Thread chicken onto soaked bamboo skewers.',
-      'Grill over charcoal until golden brown.',
-      'Baste with remaining marinade while cooking.',
-      'Prepare peanut sauce with ground peanuts.',
-      'Serve hot with peanut sauce and cucumber.',
+    stepKeys: const [
+      'satayStep1',
+      'satayStep2',
+      'satayStep3',
+      'satayStep4',
+      'satayStep5',
+      'satayStep6',
     ],
   ),
 
   // CHINESE CUISINE
-  const Recipe(
+  Recipe(
     id: 'kung_pao_chicken',
-    name: 'Kung Pao Chicken',
+    nameKey: 'kungPaoChickenName',
     image: 'assets/images/recipes/kung_pao_chicken.jpg',
     calories: 320,
     time: 25,
     rating: 4.6,
-    description: 'Spicy Sichuan chicken with peanuts.',
+    descriptionKey: 'kungPaoChickenDescription',
     servings: 3,
     cuisine: 'chinese',
-    ingredients: [
-      {'quantity': '500g', 'name': 'chicken breast, diced'},
-      {'quantity': '1/2 cup', 'name': 'roasted peanuts'},
-      {'quantity': '8-10', 'name': 'dried chilies'},
-      {'quantity': '1 tsp', 'name': 'Sichuan peppercorns'},
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 45)),
+    basePrice: 7.40, // Moderate price
+    originalCurrency: 'USD',
+    ingredients: const [
+      RecipeIngredient(
+        quantityKey: 'kungPaoChickenIngredient1Quantity',
+        nameKey: 'kungPaoChickenIngredient1Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'kungPaoChickenIngredient2Quantity',
+        nameKey: 'kungPaoChickenIngredient2Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'kungPaoChickenIngredient3Quantity',
+        nameKey: 'kungPaoChickenIngredient3Name',
+      ),
+      RecipeIngredient(
+        quantityKey: 'kungPaoChickenIngredient4Quantity',
+        nameKey: 'kungPaoChickenIngredient4Name',
+      ),
     ],
-    steps: [
-      'Marinate chicken pieces in soy sauce and rice wine.',
-      'Toast peanuts and dried chilies until fragrant.',
-      'Stir-fry chicken until golden brown.',
-      'Add aromatics and sauce, toss well.',
-      'Add peanuts and mix everything together.',
-      'Serve hot with steamed rice.',
+    stepKeys: const [
+      'kungPaoChickenStep1',
+      'kungPaoChickenStep2',
+      'kungPaoChickenStep3',
+      'kungPaoChickenStep4',
+      'kungPaoChickenStep5',
+      'kungPaoChickenStep6',
     ],
   ),
-  const Recipe(
-    id: 'sweet_sour_pork',
-    name: 'Sweet and Sour Pork',
-    image: 'assets/images/recipes/sweet_sour_pork.jpg',
-    calories: 420,
-    time: 30,
-    rating: 4.4,
-    description: 'Crispy pork with tangy sweet and sour sauce.',
-    servings: 3,
-    cuisine: 'chinese',
-    ingredients: [
-      {'quantity': '400g', 'name': 'pork tenderloin, cubed'},
-      {'quantity': '1', 'name': 'bell pepper, chunked'},
-      {'quantity': '1', 'name': 'pineapple, chunked'},
-      {'quantity': '3 tbsp', 'name': 'rice vinegar'},
-    ],
-    steps: [
-      'Coat pork cubes in cornstarch and deep fry.',
-      'Prepare sauce with vinegar, sugar, and ketchup.',
-      'Stir-fry bell peppers and pineapple briefly.',
-      'Add fried pork to the pan.',
-      'Pour sauce over and toss to coat.',
-      'Serve immediately over steamed rice.',
-    ],
-  )
 ];
