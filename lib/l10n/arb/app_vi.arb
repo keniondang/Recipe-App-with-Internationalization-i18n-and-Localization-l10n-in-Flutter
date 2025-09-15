@@ -1,0 +1,340 @@
+{
+  "@@locale": "vi",
+  
+  "navigationHome": "Trang chủ",
+  "navigationSettings": "Cài đặt",
+  "homeTitle": "Hôm nay bạn\nsẽ nấu gì?",
+  "searchHint": "Tìm kiếm công thức...",
+  "categoriesTitle": "Danh mục",
+  "viewAllButton": "Xem tất cả",
+  "filterByCuisine": "Lọc theo ẩm thực",
+  "noRecipesFound": "Không tìm thấy công thức",
+  "searchDifferentKeywords": "Thử tìm kiếm với từ khóa khác",
+  "minutesShort": "{minutes}p",
+  "cookTime": "Thời gian nấu",
+  "servings": "Khẩu phần",
+  "rating": "Đánh giá",
+  "ingredients": "Nguyên liệu",
+  "instructions": "Hướng dẫn",
+  "minutesLong": "{minutes} phút",
+
+  "hoursLong": "{hours} giờ",
+  "@hoursLong": {
+    "description": "Display hours in long format with proper pluralization",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAndMinutes": "{hours}g {minutes}p",
+  "@hoursAndMinutes": {
+    "description": "Display hours and minutes combined",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "calories": "cal",
+  "@calories": {
+    "description": "Short form for calories"
+  },
+
+  "caloriesLong": "calo",
+  "@caloriesLong": {
+    "description": "Long form for calories"
+  },
+
+  "daysAgo": "{days} ngày trước",
+  "@daysAgo": {
+    "description": "Relative time in days",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "{hours} giờ trước",
+  "@hoursAgo": {
+    "description": "Relative time in hours",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "minutesAgo": "{minutes} phút trước",
+  "@minutesAgo": {
+    "description": "Relative time in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "justNow": "vừa xong",
+  "@justNow": {
+    "description": "Indicates something happened very recently"
+  },
+
+  "createdOn": "Tạo ngày {date}",
+  "@createdOn": {
+    "description": "Shows when a recipe was created",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "updatedOn": "Cập nhật {time}",
+  "@updatedOn": {
+    "description": "Shows when a recipe was last updated",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "serves": "Cho {count} người",
+  "@serves": {
+    "description": "Indicates how many people the recipe serves",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "totalTime": "Tổng thời gian: {time}",
+  "@totalTime": {
+    "description": "Shows total cooking time",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "nutritionPerServing": "Mỗi khẩu phần",
+  "@nutritionPerServing": {
+    "description": "Indicates nutrition information is per serving"
+  },
+
+  "settingsTitle": "Cài đặt",
+  "preferencesSection": "Tùy chọn",
+  "aboutSection": "Thông tin",
+  "languageSetting": "Ngôn ngữ",
+  "languageSubtitle": "Tiếng Việt",
+  "notificationsSetting": "Thông báo",
+  "notificationsSubtitle": "Quản lý thông báo",
+  "themeSetting": "Giao diện",
+  "themeSubtitle": "Chế độ sáng",
+  "appInfoSetting": "Thông tin ứng dụng",
+  "appInfoSubtitle": "Phiên bản 1.0.0",
+  "helpSetting": "Trợ giúp & Hỗ trợ",
+  "helpSubtitle": "Nhận trợ giúp về ứng dụng",
+  "rateSetting": "Đánh giá ứng dụng",
+  "rateSubtitle": "Chia sẻ phản hồi của bạn",
+  "selectLanguageTitle": "Chọn ngôn ngữ",
+  "cancelButton": "Hủy",
+  "applyButton": "Áp dụng",
+  "englishLanguage": "Tiếng Anh",
+  "vietnameseLanguage": "Tiếng Việt",
+  "germanLanguage": "Tiếng Đức",
+  "indonesianLanguage": "Tiếng Indonesia",
+  "cuisineAll": "Tất cả",
+  "cuisineVietnamese": "Việt Nam",
+  "cuisineWestern": "Phương Tây",
+  "cuisineIndonesian": "Indonesia",
+  "cuisineChinese": "Trung Quốc",
+  "notificationSettingsPlaceholder": "Cài đặt thông báo sẽ được triển khai ở đây!",
+  "themeOptionsPlaceholder": "Tùy chọn giao diện sẽ được triển khai ở đây!",
+  "helpSupportPlaceholder": "Trợ giúp & Hỗ trợ sẽ được triển khai ở đây!",
+  "ratingThankYou": "Cảm ơn! Tính năng đánh giá sẽ được triển khai ở đây!",
+  "appName": "Ứng dụng Công thức",
+  "appVersion": "1.0.0",
+  "appLegalese": "© 2025 Ứng dụng Công thức. Tất cả quyền được bảo lưu.",
+  "appDescription": "Ứng dụng công thức đơn giản và tinh tế được xây dựng bằng Flutter.",
+  "promoBanner1": "Nấu những\ncông thức tuyệt nhất tại nhà",
+  "promoBanner2": "Khám phá hương vị\nmới mỗi ngày",
+  "promoBanner3": "Công thức đơn giản cho\ncuộc sống bận rộn",
+  "promoBanner4": "Gây ấn tượng với khách\nbằng kỹ năng của bạn",
+
+  "beefSteakName": "Bò Bít Tết",
+  "beefSteakDescription": "Bò bít tết nướng hoàn hảo với thảo mộc.",
+  "beefSteakIngredient1Quantity": "2 miếng",
+  "beefSteakIngredient1Name": "bò bít tết (8oz mỗi miếng)",
+  "beefSteakIngredient2Quantity": "2 thìa canh",
+  "beefSteakIngredient2Name": "dầu ô liu",
+  "beefSteakIngredient3Quantity": "1 thìa cà phê",
+  "beefSteakIngredient3Name": "muối",
+  "beefSteakIngredient4Quantity": "1/2 thìa cà phê",
+  "beefSteakIngredient4Name": "tiêu đen",
+  "beefSteakStep1": "Ướp bò với muối và tiêu ở cả hai mặt.",
+  "beefSteakStep2": "Đun nóng dầu ô liu trong chảo gang ở lửa lớn.",
+  "beefSteakStep3": "Áp chảo bò 3-4 phút mỗi mặt để được vừa chín.",
+  "beefSteakStep4": "Thêm bơ, tỏi và hương thảo vào chảo.",
+  "beefSteakStep5": "Tưới bò với bơ thảo mộc để thêm hương vị.",
+  "beefSteakStep6": "Để nghỉ 5 phút trước khi dọn ra.",
+
+  "phoBoName": "Phở Bò",
+  "phoBoDescription": "Phở bò truyền thống Việt Nam.",
+  "phoBoIngredient1Quantity": "1 kg",
+  "phoBoIngredient1Name": "xương bò",
+  "phoBoIngredient2Quantity": "400g",
+  "phoBoIngredient2Name": "bánh phở",
+  "phoBoIngredient3Quantity": "3 cái",
+  "phoBoIngredient3Name": "hoa hồi",
+  "phoBoIngredient4Quantity": "1 thanh",
+  "phoBoIngredient4Name": "quế",
+  "phoBoStep1": "Nướng hành tây và gừng trên lửa cho thơm.",
+  "phoBoStep2": "Ninh xương bò với gia vị trong 3 tiếng để có nước dùng.",
+  "phoBoStep3": "Luộc bánh phở theo hướng dẫn trên bao bì.",
+  "phoBoStep4": "Thái thịt bò mỏng để nấu nhanh.",
+  "phoBoStep5": "Xếp bánh phở và thịt bò sống vào tô.",
+  "phoBoStep6": "Đổ nước dùng nóng lên để chín thịt và trang trí với rau thơm.",
+
+  "banhMiName": "Bánh Mì Việt Nam",
+  "banhMiDescription": "Bánh mì giòn với rau củ chua Việt Nam.",
+  "banhMiIngredient1Quantity": "2 ổ",
+  "banhMiIngredient1Name": "bánh mì Pháp",
+  "banhMiIngredient2Quantity": "200g",
+  "banhMiIngredient2Name": "chả lụa",
+  "banhMiIngredient3Quantity": "100g",
+  "banhMiIngredient3Name": "cà rốt ngâm chua",
+  "banhMiIngredient4Quantity": "1/4 chén",
+  "banhMiIngredient4Name": "lá ngò",
+  "banhMiStep1": "Rạch bánh mì dọc, khoét bớt ruột.",
+  "banhMiStep2": "Phết mayonnaise và pâté vào trong.",
+  "banhMiStep3": "Xếp chả lụa và dưa chuột.",
+  "banhMiStep4": "Thêm rau củ ngâm chua và ngò.",
+  "banhMiStep5": "Nêm nếm với nước tương và ớt.",
+  "banhMiStep6": "Ép nhẹ bánh mì và dọn tươi.",
+
+  "bunBoHueName": "Bún Bò Huế",
+  "bunBoHueDescription": "Bún bò cay đặc sản Huế.",
+  "bunBoHueIngredient1Quantity": "400g",
+  "bunBoHueIngredient1Name": "bún tròn",
+  "bunBoHueIngredient2Quantity": "500g",
+  "bunBoHueIngredient2Name": "thịt bò",
+  "bunBoHueIngredient3Quantity": "200g",
+  "bunBoHueIngredient3Name": "giò heo",
+  "bunBoHueIngredient4Quantity": "3 thìa canh",
+  "bunBoHueIngredient4Name": "mắm ruốc",
+  "bunBoHueIngredient5Quantity": "2 thìa canh",
+  "bunBoHueIngredient5Name": "dầu ớt",
+  "bunBoHueStep1": "Ninh xương bò và heo để có nước dùng đậm đà.",
+  "bunBoHueStep2": "Thêm sả, hành tây và gia vị vào nước dùng.",
+  "bunBoHueStep3": "Luộc bún cho mềm.",
+  "bunBoHueStep4": "Thái thịt bò và heo mỏng.",
+  "bunBoHueStep5": "Nêm nước dùng với mắm ruốc và dầu ớt.",
+  "bunBoHueStep6": "Dọn với rau thơm và chanh.",
+
+  "rendangName": "Rendang Bò",
+  "rendangDescription": "Cà ri bò cay nấu chậm kiểu Indonesia.",
+  "rendangIngredient1Quantity": "800g",
+  "rendangIngredient1Name": "thịt bò thăn, cắt miếng",
+  "rendangIngredient2Quantity": "400ml",
+  "rendangIngredient2Name": "nước cốt dừa",
+  "rendangIngredient3Quantity": "4 thìa canh",
+  "rendangIngredient3Name": "kroeung rendang",
+  "rendangIngredient4Quantity": "3 cây",
+  "rendangIngredient4Name": "sả",
+  "rendangStep1": "Áp chảo thịt bò trong nồi nặng đáy.",
+  "rendangStep2": "Thêm kroeung và xào cho thơm.",
+  "rendangStep3": "Đổ nước cốt dừa và thêm sả.",
+  "rendangStep4": "Ninh lửa nhỏ trong 2 tiếng.",
+  "rendangStep5": "Tiếp tục nấu cho đến khi nước sốt đặc.",
+  "rendangStep6": "Khuấy thường xuyên trong 30 phút cuối cho đến khi thẫm màu.",
+
+  "satayName": "Sate Gà",
+  "satayDescription": "Xiên gà nướng với nước chấm đậu phộng.",
+  "satayIngredient1Quantity": "600g",
+  "satayIngredient1Name": "đùi gà, cắt miếng",
+  "satayIngredient2Quantity": "2 thìa canh",
+  "satayIngredient2Name": "nước cốt dừa",
+  "satayIngredient3Quantity": "1 thìa canh",
+  "satayIngredient3Name": "đường thốt nốt",
+  "satayIngredient4Quantity": "20 cái",
+  "satayIngredient4Name": "xiên tre",
+  "satayIngredient5Quantity": "1/2 chén",
+  "satayIngredient5Name": "nước chấm đậu phộng",
+  "satayStep1": "Ướp gà trong nước cốt dừa và gia vị.",
+  "satayStep2": "Xuyên gà vào xiên tre đã ngâm nước.",
+  "satayStep3": "Nướng trên than cho đến khi vàng.",
+  "satayStep4": "Quét nước ướp còn lại trong khi nướng.",
+  "satayStep5": "Pha nước chấm đậu phộng.",
+  "satayStep6": "Dọn nóng với nước chấm đậu phộng và dưa chuột.",
+
+  "kungPaoChickenName": "Gà Kung Pao",
+  "kungPaoChickenDescription": "Gà cay Tứ Xuyên với đậu phộng.",
+  "kungPaoChickenIngredient1Quantity": "500g",
+  "kungPaoChickenIngredient1Name": "ức gà, cắt hạt lựu",
+  "kungPaoChickenIngredient2Quantity": "1/2 chén",
+  "kungPaoChickenIngredient2Name": "đậu phộng rang",
+  "kungPaoChickenIngredient3Quantity": "8-10 quả",
+  "kungPaoChickenIngredient3Name": "ớt khô",
+  "kungPaoChickenIngredient4Quantity": "1 thìa cà phê",
+  "kungPaoChickenIngredient4Name": "hạt tiêu Tứ Xuyên",
+  "kungPaoChickenStep1": "Ướp gà trong nước tương và rượu gạo.",
+  "kungPaoChickenStep2": "Rang đậu phộng và ớt khô cho thơm.",
+  "kungPaoChickenStep3": "Xào gà cho đến khi vàng.",
+  "kungPaoChickenStep4": "Thêm gia vị thơm và nước sốt, trộn đều.",
+  "kungPaoChickenStep5": "Thêm đậu phộng và trộn mọi thứ lại.",
+  "kungPaoChickenStep6": "Dọn nóng với cơm trắng.",
+
+  "estimatedCost": "Chi phí ước tính",
+  "@estimatedCost": {
+    "description": "Label for estimated recipe cost"
+  },
+
+  "costPerServing": "Chi phí mỗi khẩu phần",
+  "@costPerServing": {
+    "description": "Label for cost calculated per serving"
+  },
+
+  "budgetFriendly": "Thân thiện ngân sách",
+  "@budgetFriendly": {
+    "description": "Label for low-cost recipes"
+  },
+
+  "moderatePrice": "Giá vừa phải",
+  "@moderatePrice": {
+    "description": "Label for medium-cost recipes"
+  },
+
+  "premiumRecipe": "Công thức cao cấp",
+  "@premiumRecipe": {
+    "description": "Label for high-cost recipes"
+  },
+
+  "priceNotAvailable": "Giá không có sẵn",
+  "@priceNotAvailable": {
+    "description": "Label when recipe price is unknown"
+  },
+
+  "totalIngredientsPrice": "Tổng giá nguyên liệu",
+  "@totalIngredientsPrice": {
+    "description": "Label for total cost of all ingredients"
+  },
+
+  "exchangeRateUSD": "1.0",
+  "exchangeRateEUR": "0.92",
+  "exchangeRateVND": "24350.0",
+  "exchangeRateIDR": "15750.0",
+  "currencySymbolUSD": "$",
+  "currencySymbolEUR": "€",
+  "currencySymbolVND": "₫",
+  "currencySymbolIDR": "Rp"
+}

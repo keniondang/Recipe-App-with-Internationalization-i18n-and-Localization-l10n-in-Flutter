@@ -1,0 +1,340 @@
+{
+  "@@locale": "en",
+  
+  "navigationHome": "Home",
+  "navigationSettings": "Settings",
+  "homeTitle": "What are you\ncooking today?",
+  "searchHint": "Search for recipes...",
+  "categoriesTitle": "Categories",
+  "viewAllButton": "View All",
+  "filterByCuisine": "Filter by Cuisine",
+  "noRecipesFound": "No recipes found",
+  "searchDifferentKeywords": "Try searching with different keywords",
+  "minutesShort": "{minutes}m",
+  "cookTime": "Cook time",
+  "servings": "Servings",
+  "rating": "Rating",
+  "ingredients": "Ingredients",
+  "instructions": "Instructions",
+  "minutesLong": "{minutes} min",
+
+  "hoursLong": "{hours} {hours, plural, =1{hour} other{hours}}",
+  "@hoursLong": {
+    "description": "Display hours in long format with proper pluralization",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAndMinutes": "{hours}h {minutes}m",
+  "@hoursAndMinutes": {
+    "description": "Display hours and minutes combined",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "calories": "cal",
+  "@calories": {
+    "description": "Short form for calories"
+  },
+
+  "caloriesLong": "calories",
+  "@caloriesLong": {
+    "description": "Long form for calories"
+  },
+
+  "daysAgo": "{days} {days, plural, =1{day} other{days}} ago",
+  "@daysAgo": {
+    "description": "Relative time in days",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "{hours} {hours, plural, =1{hour} other{hours}} ago",
+  "@hoursAgo": {
+    "description": "Relative time in hours",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "minutesAgo": "{minutes} {minutes, plural, =1{minute} other{minutes}} ago",
+  "@minutesAgo": {
+    "description": "Relative time in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "justNow": "just now",
+  "@justNow": {
+    "description": "Indicates something happened very recently"
+  },
+
+  "createdOn": "Created on {date}",
+  "@createdOn": {
+    "description": "Shows when a recipe was created",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "updatedOn": "Updated {time}",
+  "@updatedOn": {
+    "description": "Shows when a recipe was last updated",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "serves": "Serves {count}",
+  "@serves": {
+    "description": "Indicates how many people the recipe serves",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "totalTime": "Total time: {time}",
+  "@totalTime": {
+    "description": "Shows total cooking time",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "nutritionPerServing": "Per serving",
+  "@nutritionPerServing": {
+    "description": "Indicates nutrition information is per serving"
+  },
+
+  "settingsTitle": "Settings",
+  "preferencesSection": "Preferences",
+  "aboutSection": "About",
+  "languageSetting": "Language",
+  "languageSubtitle": "English",
+  "notificationsSetting": "Notifications",
+  "notificationsSubtitle": "Manage your notifications",
+  "themeSetting": "Theme",
+  "themeSubtitle": "Light mode",
+  "appInfoSetting": "App Information",
+  "appInfoSubtitle": "Version 1.0.0",
+  "helpSetting": "Help & Support",
+  "helpSubtitle": "Get help with the app",
+  "rateSetting": "Rate App",
+  "rateSubtitle": "Share your feedback",
+  "selectLanguageTitle": "Select Language",
+  "cancelButton": "Cancel",
+  "applyButton": "Apply",
+  "englishLanguage": "English",
+  "vietnameseLanguage": "Vietnamese",
+  "germanLanguage": "German",
+  "indonesianLanguage": "Indonesian",
+  "cuisineAll": "All",
+  "cuisineVietnamese": "Vietnamese",
+  "cuisineWestern": "Western",
+  "cuisineIndonesian": "Indonesian",
+  "cuisineChinese": "Chinese",
+  "notificationSettingsPlaceholder": "Notification settings will be implemented here!",
+  "themeOptionsPlaceholder": "Theme options will be implemented here!",
+  "helpSupportPlaceholder": "Help & Support will be implemented here!",
+  "ratingThankYou": "Thank you! Rating feature will be implemented here!",
+  "appName": "Recipe App",
+  "appVersion": "1.0.0",
+  "appLegalese": "© 2025 Recipe App. All rights reserved.",
+  "appDescription": "A simple and elegant recipe app built with Flutter.",
+  "promoBanner1": "Cook the best\nrecipes at home",
+  "promoBanner2": "Discover new\nflavors every day",
+  "promoBanner3": "Simple recipes for\nyour busy life",
+  "promoBanner4": "Impress your guests\nwith your skills",
+
+  "beefSteakName": "Beef Steak",
+  "beefSteakDescription": "Perfectly grilled beef steak with herbs.",
+  "beefSteakIngredient1Quantity": "2 pieces",
+  "beefSteakIngredient1Name": "beef steaks (8oz each)",
+  "beefSteakIngredient2Quantity": "2 tbsp",
+  "beefSteakIngredient2Name": "olive oil",
+  "beefSteakIngredient3Quantity": "1 tsp",
+  "beefSteakIngredient3Name": "salt",
+  "beefSteakIngredient4Quantity": "1/2 tsp",
+  "beefSteakIngredient4Name": "black pepper",
+  "beefSteakStep1": "Season steaks with salt and pepper on both sides.",
+  "beefSteakStep2": "Heat olive oil in a cast iron pan over high heat.",
+  "beefSteakStep3": "Sear steaks for 3-4 minutes each side for medium-rare.",
+  "beefSteakStep4": "Add butter, garlic, and rosemary to the pan.",
+  "beefSteakStep5": "Baste steaks with herb butter for extra flavor.",
+  "beefSteakStep6": "Rest for 5 minutes before serving.",
+
+  "phoBoName": "Pho Bo",
+  "phoBoDescription": "Traditional Vietnamese beef noodle soup.",
+  "phoBoIngredient1Quantity": "1 kg",
+  "phoBoIngredient1Name": "beef bones",
+  "phoBoIngredient2Quantity": "400g",
+  "phoBoIngredient2Name": "rice noodles (bánh phở)",
+  "phoBoIngredient3Quantity": "3 pieces",
+  "phoBoIngredient3Name": "star anise",
+  "phoBoIngredient4Quantity": "1 stick",
+  "phoBoIngredient4Name": "cinnamon",
+  "phoBoStep1": "Char onion and ginger over open flame until fragrant.",
+  "phoBoStep2": "Boil beef bones with spices for 3 hours to make broth.",
+  "phoBoStep3": "Cook rice noodles according to package instructions.",
+  "phoBoStep4": "Slice beef thinly for quick cooking.",
+  "phoBoStep5": "Assemble bowls with noodles and raw beef.",
+  "phoBoStep6": "Pour hot broth over to cook beef and garnish with herbs.",
+
+  "banhMiName": "Vietnamese Banh Mi",
+  "banhMiDescription": "Crispy baguette with Vietnamese pickled vegetables.",
+  "banhMiIngredient1Quantity": "2",
+  "banhMiIngredient1Name": "French baguettes",
+  "banhMiIngredient2Quantity": "200g",
+  "banhMiIngredient2Name": "Vietnamese ham",
+  "banhMiIngredient3Quantity": "100g",
+  "banhMiIngredient3Name": "pickled carrots",
+  "banhMiIngredient4Quantity": "1/4 cup",
+  "banhMiIngredient4Name": "cilantro leaves",
+  "banhMiStep1": "Slice baguettes lengthwise, hollow slightly.",
+  "banhMiStep2": "Spread mayonnaise and pâté inside.",
+  "banhMiStep3": "Layer with Vietnamese ham and cucumber.",
+  "banhMiStep4": "Add pickled vegetables and cilantro.",
+  "banhMiStep5": "Season with soy sauce and chili.",
+  "banhMiStep6": "Press sandwich lightly and serve fresh.",
+
+  "bunBoHueName": "Bun Bo Hue",
+  "bunBoHueDescription": "Spicy beef noodle soup from Hue.",
+  "bunBoHueIngredient1Quantity": "400g",
+  "bunBoHueIngredient1Name": "thick round rice noodles",
+  "bunBoHueIngredient2Quantity": "500g",
+  "bunBoHueIngredient2Name": "beef shank",
+  "bunBoHueIngredient3Quantity": "200g",
+  "bunBoHueIngredient3Name": "pork hock",
+  "bunBoHueIngredient4Quantity": "3 tbsp",
+  "bunBoHueIngredient4Name": "shrimp paste",
+  "bunBoHueIngredient5Quantity": "2 tbsp",
+  "bunBoHueIngredient5Name": "chili oil",
+  "bunBoHueStep1": "Boil beef and pork bones for rich broth.",
+  "bunBoHueStep2": "Add lemongrass, onions, and spices to broth.",
+  "bunBoHueStep3": "Cook thick rice noodles until tender.",
+  "bunBoHueStep4": "Slice cooked beef and pork thinly.",
+  "bunBoHueStep5": "Season broth with shrimp paste and chili oil.",
+  "bunBoHueStep6": "Serve with fresh herbs and lime wedges.",
+
+  "rendangName": "Beef Rendang",
+  "rendangDescription": "Indonesian slow-cooked spicy beef curry.",
+  "rendangIngredient1Quantity": "800g",
+  "rendangIngredient1Name": "beef chuck, cubed",
+  "rendangIngredient2Quantity": "400ml",
+  "rendangIngredient2Name": "coconut milk",
+  "rendangIngredient3Quantity": "4 tbsp",
+  "rendangIngredient3Name": "rendang spice paste",
+  "rendangIngredient4Quantity": "3",
+  "rendangIngredient4Name": "lemongrass stalks",
+  "rendangStep1": "Brown beef cubes in a heavy pot.",
+  "rendangStep2": "Add spice paste and cook until fragrant.",
+  "rendangStep3": "Pour in coconut milk and add aromatics.",
+  "rendangStep4": "Simmer on low heat for 2 hours.",
+  "rendangStep5": "Continue cooking until sauce thickens.",
+  "rendangStep6": "Stir frequently in final 30 minutes until dark.",
+
+  "satayName": "Chicken Satay",
+  "satayDescription": "Grilled chicken skewers with peanut sauce.",
+  "satayIngredient1Quantity": "600g",
+  "satayIngredient1Name": "chicken thigh, cubed",
+  "satayIngredient2Quantity": "2 tbsp",
+  "satayIngredient2Name": "coconut milk",
+  "satayIngredient3Quantity": "1 tbsp",
+  "satayIngredient3Name": "palm sugar",
+  "satayIngredient4Quantity": "20",
+  "satayIngredient4Name": "bamboo skewers",
+  "satayIngredient5Quantity": "1/2 cup",
+  "satayIngredient5Name": "peanut sauce",
+  "satayStep1": "Marinate chicken in coconut milk and spices.",
+  "satayStep2": "Thread chicken onto soaked bamboo skewers.",
+  "satayStep3": "Grill over charcoal until golden brown.",
+  "satayStep4": "Baste with remaining marinade while cooking.",
+  "satayStep5": "Prepare peanut sauce with ground peanuts.",
+  "satayStep6": "Serve hot with peanut sauce and cucumber.",
+
+  "kungPaoChickenName": "Kung Pao Chicken",
+  "kungPaoChickenDescription": "Spicy Sichuan chicken with peanuts.",
+  "kungPaoChickenIngredient1Quantity": "500g",
+  "kungPaoChickenIngredient1Name": "chicken breast, diced",
+  "kungPaoChickenIngredient2Quantity": "1/2 cup",
+  "kungPaoChickenIngredient2Name": "roasted peanuts",
+  "kungPaoChickenIngredient3Quantity": "8-10",
+  "kungPaoChickenIngredient3Name": "dried chilies",
+  "kungPaoChickenIngredient4Quantity": "1 tsp",
+  "kungPaoChickenIngredient4Name": "Sichuan peppercorns",
+  "kungPaoChickenStep1": "Marinate chicken pieces in soy sauce and rice wine.",
+  "kungPaoChickenStep2": "Toast peanuts and dried chilies until fragrant.",
+  "kungPaoChickenStep3": "Stir-fry chicken until golden brown.",
+  "kungPaoChickenStep4": "Add aromatics and sauce, toss well.",
+  "kungPaoChickenStep5": "Add peanuts and mix everything together.",
+  "kungPaoChickenStep6": "Serve hot with steamed rice.",
+
+  "estimatedCost": "Estimated cost",
+  "@estimatedCost": {
+    "description": "Label for estimated recipe cost"
+  },
+
+  "costPerServing": "Cost per serving",
+  "@costPerServing": {
+    "description": "Label for cost calculated per serving"
+  },
+
+  "budgetFriendly": "Budget friendly",
+  "@budgetFriendly": {
+    "description": "Label for low-cost recipes"
+  },
+
+  "moderatePrice": "Moderate price",
+  "@moderatePrice": {
+    "description": "Label for medium-cost recipes"
+  },
+
+  "premiumRecipe": "Premium recipe",
+  "@premiumRecipe": {
+    "description": "Label for high-cost recipes"
+  },
+
+  "priceNotAvailable": "Price not available",
+  "@priceNotAvailable": {
+    "description": "Label when recipe price is unknown"
+  },
+
+  "totalIngredientsPrice": "Total ingredients price",
+  "@totalIngredientsPrice": {
+    "description": "Label for total cost of all ingredients"
+  },
+  
+  "exchangeRateUSD": "1.0",
+  "exchangeRateEUR": "0.92",
+  "exchangeRateVND": "24350.0",
+  "exchangeRateIDR": "15750.0",
+  "currencySymbolUSD": "$",
+  "currencySymbolEUR": "€",
+  "currencySymbolVND": "₫",
+  "currencySymbolIDR": "Rp"
+}

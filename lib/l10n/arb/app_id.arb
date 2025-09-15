@@ -1,0 +1,340 @@
+{
+  "@@locale": "id",
+  
+  "navigationHome": "Beranda",
+  "navigationSettings": "Pengaturan",
+  "homeTitle": "Apa yang akan\nkamu masak hari ini?",
+  "searchHint": "Cari resep...",
+  "categoriesTitle": "Kategori",
+  "viewAllButton": "Lihat Semua",
+  "filterByCuisine": "Filter berdasarkan masakan",
+  "noRecipesFound": "Resep tidak ditemukan",
+  "searchDifferentKeywords": "Coba cari dengan kata kunci lain",
+  "minutesShort": "{minutes}m",
+  "cookTime": "Waktu memasak",
+  "servings": "Porsi",
+  "rating": "Rating",
+  "ingredients": "Bahan-bahan",
+  "instructions": "Instruksi",
+  "minutesLong": "{minutes} menit",
+
+  "hoursLong": "{hours} jam",
+  "@hoursLong": {
+    "description": "Display hours in long format with proper pluralization",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAndMinutes": "{hours}j {minutes}m",
+  "@hoursAndMinutes": {
+    "description": "Display hours and minutes combined",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "calories": "kal",
+  "@calories": {
+    "description": "Short form for calories"
+  },
+
+  "caloriesLong": "kalori",
+  "@caloriesLong": {
+    "description": "Long form for calories"
+  },
+
+  "daysAgo": "{days} hari yang lalu",
+  "@daysAgo": {
+    "description": "Relative time in days",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "{hours} jam yang lalu",
+  "@hoursAgo": {
+    "description": "Relative time in hours",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "minutesAgo": "{minutes} menit yang lalu",
+  "@minutesAgo": {
+    "description": "Relative time in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "justNow": "baru saja",
+  "@justNow": {
+    "description": "Indicates something happened very recently"
+  },
+
+  "createdOn": "Dibuat pada {date}",
+  "@createdOn": {
+    "description": "Shows when a recipe was created",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "updatedOn": "Diperbarui {time}",
+  "@updatedOn": {
+    "description": "Shows when a recipe was last updated",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "serves": "Untuk {count} porsi",
+  "@serves": {
+    "description": "Indicates how many people the recipe serves",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "totalTime": "Total waktu: {time}",
+  "@totalTime": {
+    "description": "Shows total cooking time",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "nutritionPerServing": "Per porsi",
+  "@nutritionPerServing": {
+    "description": "Indicates nutrition information is per serving"
+  },
+
+  "settingsTitle": "Pengaturan",
+  "preferencesSection": "Preferensi",
+  "aboutSection": "Tentang",
+  "languageSetting": "Bahasa",
+  "languageSubtitle": "Indonesia",
+  "notificationsSetting": "Notifikasi",
+  "notificationsSubtitle": "Kelola notifikasi Anda",
+  "themeSetting": "Tema",
+  "themeSubtitle": "Mode terang",
+  "appInfoSetting": "Informasi Aplikasi",
+  "appInfoSubtitle": "Versi 1.0.0",
+  "helpSetting": "Bantuan & Dukungan",
+  "helpSubtitle": "Dapatkan bantuan dengan aplikasi",
+  "rateSetting": "Beri Rating Aplikasi",
+  "rateSubtitle": "Bagikan feedback Anda",
+  "selectLanguageTitle": "Pilih Bahasa",
+  "cancelButton": "Batal",
+  "applyButton": "Terapkan",
+  "englishLanguage": "Bahasa Inggris",
+  "vietnameseLanguage": "Bahasa Vietnam",
+  "germanLanguage": "Bahasa Jerman",
+  "indonesianLanguage": "Bahasa Indonesia",
+  "cuisineAll": "Semua",
+  "cuisineVietnamese": "Vietnam",
+  "cuisineWestern": "Barat",
+  "cuisineIndonesian": "Indonesia",
+  "cuisineChinese": "Tiongkok",
+  "notificationSettingsPlaceholder": "Pengaturan notifikasi akan diimplementasikan di sini!",
+  "themeOptionsPlaceholder": "Opsi tema akan diimplementasikan di sini!",
+  "helpSupportPlaceholder": "Bantuan & Dukungan akan diimplementasikan di sini!",
+  "ratingThankYou": "Terima kasih! Fitur rating akan diimplementasikan di sini!",
+  "appName": "Aplikasi Resep",
+  "appVersion": "1.0.0",
+  "appLegalese": "© 2025 Aplikasi Resep. Semua hak dilindungi.",
+  "appDescription": "Aplikasi resep yang sederhana dan elegan dibuat dengan Flutter.",
+  "promoBanner1": "Masak resep terbaik\ndi rumah",
+  "promoBanner2": "Temukan rasa baru\nsetiap hari",
+  "promoBanner3": "Resep sederhana untuk\nhidup yang sibuk",
+  "promoBanner4": "Buat kagum tamu\ndengan kemampuan Anda",
+
+  "beefSteakName": "Steak Daging Sapi",
+  "beefSteakDescription": "Steak daging sapi panggang sempurna dengan bumbu herbal.",
+  "beefSteakIngredient1Quantity": "2 potong",
+  "beefSteakIngredient1Name": "steak daging sapi (8oz setiap potong)",
+  "beefSteakIngredient2Quantity": "2 sdm",
+  "beefSteakIngredient2Name": "minyak zaitun",
+  "beefSteakIngredient3Quantity": "1 sdt",
+  "beefSteakIngredient3Name": "garam",
+  "beefSteakIngredient4Quantity": "1/2 sdt",
+  "beefSteakIngredient4Name": "lada hitam",
+  "beefSteakStep1": "Bumbui steak dengan garam dan lada di kedua sisi.",
+  "beefSteakStep2": "Panaskan minyak zaitun di wajan besi dengan api besar.",
+  "beefSteakStep3": "Panggang steak 3-4 menit setiap sisi untuk medium-rare.",
+  "beefSteakStep4": "Tambahkan mentega, bawang putih, dan rosemary ke wajan.",
+  "beefSteakStep5": "Siram steak dengan mentega herbal untuk rasa ekstra.",
+  "beefSteakStep6": "Diamkan selama 5 menit sebelum disajikan.",
+
+  "phoBoName": "Pho Bo",
+  "phoBoDescription": "Sup mie daging sapi tradisional Vietnam.",
+  "phoBoIngredient1Quantity": "1 kg",
+  "phoBoIngredient1Name": "tulang sapi",
+  "phoBoIngredient2Quantity": "400g",
+  "phoBoIngredient2Name": "mie beras (bánh phở)",
+  "phoBoIngredient3Quantity": "3 buah",
+  "phoBoIngredient3Name": "bunga lawang",
+  "phoBoIngredient4Quantity": "1 batang",
+  "phoBoIngredient4Name": "kayu manis",
+  "phoBoStep1": "Panggang bawang bombay dan jahe di atas api terbuka hingga harum.",
+  "phoBoStep2": "Rebus tulang sapi dengan rempah selama 3 jam untuk membuat kaldu.",
+  "phoBoStep3": "Masak mie beras sesuai petunjuk kemasan.",
+  "phoBoStep4": "Iris daging sapi tipis untuk masak cepat.",
+  "phoBoStep5": "Susun mangkuk dengan mie dan daging sapi mentah.",
+  "phoBoStep6": "Tuang kaldu panas untuk memasak daging dan hiasi dengan herbal.",
+
+  "banhMiName": "Banh Mi Vietnam",
+  "banhMiDescription": "Roti baguette renyah dengan acar sayuran Vietnam.",
+  "banhMiIngredient1Quantity": "2 buah",
+  "banhMiIngredient1Name": "baguette Prancis",
+  "banhMiIngredient2Quantity": "200g",
+  "banhMiIngredient2Name": "ham Vietnam",
+  "banhMiIngredient3Quantity": "100g",
+  "banhMiIngredient3Name": "acar wortel",
+  "banhMiIngredient4Quantity": "1/4 cangkir",
+  "banhMiIngredient4Name": "daun ketumbar",
+  "banhMiStep1": "Iris baguette memanjang, korek sedikit isinya.",
+  "banhMiStep2": "Oles mayonnaise dan pâté di dalam.",
+  "banhMiStep3": "Tata dengan ham Vietnam dan timun.",
+  "banhMiStep4": "Tambahkan acar sayuran dan ketumbar.",
+  "banhMiStep5": "Bumbui dengan kecap asin dan cabai.",
+  "banhMiStep6": "Tekan sandwich ringan dan sajikan segar.",
+
+  "bunBoHueName": "Bun Bo Hue",
+  "bunBoHueDescription": "Sup mie daging sapi pedas dari Hue.",
+  "bunBoHueIngredient1Quantity": "400g",
+  "bunBoHueIngredient1Name": "mie beras tebal bulat",
+  "bunBoHueIngredient2Quantity": "500g",
+  "bunBoHueIngredient2Name": "daging sapi bagian betis",
+  "bunBoHueIngredient3Quantity": "200g",
+  "bunBoHueIngredient3Name": "kaki babi",
+  "bunBoHueIngredient4Quantity": "3 sdm",
+  "bunBoHueIngredient4Name": "terasi udang",
+  "bunBoHueIngredient5Quantity": "2 sdm",
+  "bunBoHueIngredient5Name": "minyak cabai",
+  "bunBoHueStep1": "Rebus tulang sapi dan babi untuk kaldu yang kaya.",
+  "bunBoHueStep2": "Tambahkan serai, bawang bombay, dan rempah ke kaldu.",
+  "bunBoHueStep3": "Masak mie beras tebal hingga empuk.",
+  "bunBoHueStep4": "Iris daging sapi dan babi yang sudah matang tipis-tipis.",
+  "bunBoHueStep5": "Bumbui kaldu dengan terasi udang dan minyak cabai.",
+  "bunBoHueStep6": "Sajikan dengan herbal segar dan irisan jeruk nipis.",
+
+  "rendangName": "Rendang Daging Sapi",
+  "rendangDescription": "Kari daging sapi pedas masak lambat khas Indonesia.",
+  "rendangIngredient1Quantity": "800g",
+  "rendangIngredient1Name": "daging sapi chuck, potong dadu",
+  "rendangIngredient2Quantity": "400ml",
+  "rendangIngredient2Name": "santan",
+  "rendangIngredient3Quantity": "4 sdm",
+  "rendangIngredient3Name": "bumbu rendang",
+  "rendangIngredient4Quantity": "3 batang",
+  "rendangIngredient4Name": "serai",
+  "rendangStep1": "Tumis daging sapi dalam panci tebal hingga kecoklatan.",
+  "rendangStep2": "Tambahkan bumbu dan masak hingga harum.",
+  "rendangStep3": "Tuang santan dan tambahkan serai.",
+  "rendangStep4": "Masak dengan api kecil selama 2 jam.",
+  "rendangStep5": "Lanjutkan memasak hingga kuah mengental.",
+  "rendangStep6": "Aduk sering di 30 menit terakhir hingga berwarna gelap.",
+
+  "satayName": "Sate Ayam",
+  "satayDescription": "Tusuk sate ayam panggang dengan saus kacang.",
+  "satayIngredient1Quantity": "600g",
+  "satayIngredient1Name": "paha ayam, potong dadu",
+  "satayIngredient2Quantity": "2 sdm",
+  "satayIngredient2Name": "santan",
+  "satayIngredient3Quantity": "1 sdm",
+  "satayIngredient3Name": "gula kelapa",
+  "satayIngredient4Quantity": "20 buah",
+  "satayIngredient4Name": "tusuk sate bambu",
+  "satayIngredient5Quantity": "1/2 cangkir",
+  "satayIngredient5Name": "saus kacang",
+  "satayStep1": "Marinasi ayam dalam santan dan bumbu.",
+  "satayStep2": "Tusuk ayam ke tusuk sate bambu yang sudah direndam.",
+  "satayStep3": "Panggang di atas arang hingga keemasan.",
+  "satayStep4": "Oles dengan sisa bumbu marinasi saat memanggang.",
+  "satayStep5": "Buat saus kacang dengan kacang tanah halus.",
+  "satayStep6": "Sajikan panas dengan saus kacang dan timun.",
+
+  "kungPaoChickenName": "Ayam Kung Pao",
+  "kungPaoChickenDescription": "Ayam pedas Sichuan dengan kacang tanah.",
+  "kungPaoChickenIngredient1Quantity": "500g",
+  "kungPaoChickenIngredient1Name": "dada ayam, potong dadu",
+  "kungPaoChickenIngredient2Quantity": "1/2 cangkir",
+  "kungPaoChickenIngredient2Name": "kacang tanah sangrai",
+  "kungPaoChickenIngredient3Quantity": "8-10 buah",
+  "kungPaoChickenIngredient3Name": "cabai kering",
+  "kungPaoChickenIngredient4Quantity": "1 sdt",
+  "kungPaoChickenIngredient4Name": "merica Sichuan",
+  "kungPaoChickenStep1": "Marinasi potongan ayam dalam kecap asin dan arak beras.",
+  "kungPaoChickenStep2": "Panggang kacang tanah dan cabai kering hingga harum.",
+  "kungPaoChickenStep3": "Tumis ayam hingga keemasan.",
+  "kungPaoChickenStep4": "Tambahkan bumbu aromatik dan saus, aduk rata.",
+  "kungPaoChickenStep5": "Tambahkan kacang tanah dan campur semua bahan.",
+  "kungPaoChickenStep6": "Sajikan panas dengan nasi putih.",
+
+  "estimatedCost": "Perkiraan biaya",
+  "@estimatedCost": {
+    "description": "Label for estimated recipe cost"
+  },
+
+  "costPerServing": "Biaya per porsi",
+  "@costPerServing": {
+    "description": "Label for cost calculated per serving"
+  },
+
+  "budgetFriendly": "Ramah anggaran",
+  "@budgetFriendly": {
+    "description": "Label for low-cost recipes"
+  },
+
+  "moderatePrice": "Harga sedang",
+  "@moderatePrice": {
+    "description": "Label for medium-cost recipes"
+  },
+
+  "premiumRecipe": "Resep premium",
+  "@premiumRecipe": {
+    "description": "Label for high-cost recipes"
+  },
+
+  "priceNotAvailable": "Harga tidak tersedia",
+  "@priceNotAvailable": {
+    "description": "Label when recipe price is unknown"
+  },
+
+  "totalIngredientsPrice": "Total harga bahan",
+  "@totalIngredientsPrice": {
+    "description": "Label for total cost of all ingredients"
+  },
+
+  "exchangeRateUSD": "1.0",
+  "exchangeRateEUR": "0.92",
+  "exchangeRateVND": "24350.0",
+  "exchangeRateIDR": "15750.0",
+  "currencySymbolUSD": "$",
+  "currencySymbolEUR": "€",
+  "currencySymbolVND": "₫",
+  "currencySymbolIDR": "Rp"
+}

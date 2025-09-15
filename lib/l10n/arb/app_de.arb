@@ -1,0 +1,340 @@
+{
+  "@@locale": "de",
+  
+  "navigationHome": "Startseite",
+  "navigationSettings": "Einstellungen",
+  "homeTitle": "Was kochst du\nheute?",
+  "searchHint": "Nach Rezepten suchen...",
+  "categoriesTitle": "Kategorien",
+  "viewAllButton": "Alle anzeigen",
+  "filterByCuisine": "Nach Küche filtern",
+  "noRecipesFound": "Keine Rezepte gefunden",
+  "searchDifferentKeywords": "Versuchen Sie es mit anderen Suchbegriffen",
+  "minutesShort": "{minutes}min",
+  "cookTime": "Kochzeit",
+  "servings": "Portionen",
+  "rating": "Bewertung",
+  "ingredients": "Zutaten",
+  "instructions": "Anweisungen",
+  "minutesLong": "{minutes} Minuten",
+
+  "hoursLong": "{hours} {hours, plural, =1{Stunde} other{Stunden}}",
+  "@hoursLong": {
+    "description": "Display hours in long format with proper pluralization",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAndMinutes": "{hours}h {minutes}m",
+  "@hoursAndMinutes": {
+    "description": "Display hours and minutes combined",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "calories": "kcal",
+  "@calories": {
+    "description": "Short form for calories"
+  },
+
+  "caloriesLong": "Kalorien",
+  "@caloriesLong": {
+    "description": "Long form for calories"
+  },
+
+  "daysAgo": "vor {days} {days, plural, =1{Tag} other{Tagen}}",
+  "@daysAgo": {
+    "description": "Relative time in days",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "vor {hours} {hours, plural, =1{Stunde} other{Stunden}}",
+  "@hoursAgo": {
+    "description": "Relative time in hours",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "minutesAgo": "vor {minutes} {minutes, plural, =1{Minute} other{Minuten}}",
+  "@minutesAgo": {
+    "description": "Relative time in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "justNow": "gerade eben",
+  "@justNow": {
+    "description": "Indicates something happened very recently"
+  },
+
+  "createdOn": "Erstellt am {date}",
+  "@createdOn": {
+    "description": "Shows when a recipe was created",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "updatedOn": "Aktualisiert {time}",
+  "@updatedOn": {
+    "description": "Shows when a recipe was last updated",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "serves": "Für {count} Personen",
+  "@serves": {
+    "description": "Indicates how many people the recipe serves",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "totalTime": "Gesamtzeit: {time}",
+  "@totalTime": {
+    "description": "Shows total cooking time",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "nutritionPerServing": "Pro Portion",
+  "@nutritionPerServing": {
+    "description": "Indicates nutrition information is per serving"
+  },
+
+  "settingsTitle": "Einstellungen",
+  "preferencesSection": "Einstellungen",
+  "aboutSection": "Über",
+  "languageSetting": "Sprache",
+  "languageSubtitle": "Deutsch",
+  "notificationsSetting": "Benachrichtigungen",
+  "notificationsSubtitle": "Benachrichtigungen verwalten",
+  "themeSetting": "Design",
+  "themeSubtitle": "Heller Modus",
+  "appInfoSetting": "App-Informationen",
+  "appInfoSubtitle": "Version 1.0.0",
+  "helpSetting": "Hilfe & Support",
+  "helpSubtitle": "Hilfe zur App erhalten",
+  "rateSetting": "App bewerten",
+  "rateSubtitle": "Feedback teilen",
+  "selectLanguageTitle": "Sprache auswählen",
+  "cancelButton": "Abbrechen",
+  "applyButton": "Anwenden",
+  "englishLanguage": "Englisch",
+  "vietnameseLanguage": "Vietnamesisch",
+  "germanLanguage": "Deutsch",
+  "indonesianLanguage": "Indonesisch",
+  "cuisineAll": "Alle",
+  "cuisineVietnamese": "Vietnamesisch",
+  "cuisineWestern": "Westlich",
+  "cuisineIndonesian": "Indonesisch",
+  "cuisineChinese": "Chinesisch",
+  "notificationSettingsPlaceholder": "Benachrichtigungseinstellungen werden hier implementiert!",
+  "themeOptionsPlaceholder": "Design-Optionen werden hier implementiert!",
+  "helpSupportPlaceholder": "Hilfe & Support wird hier implementiert!",
+  "ratingThankYou": "Danke! Die Bewertungsfunktion wird hier implementiert!",
+  "appName": "Rezept-App",
+  "appVersion": "1.0.0",
+  "appLegalese": "© 2025 Rezept-App. Alle Rechte vorbehalten.",
+  "appDescription": "Eine einfache und elegante Rezept-App, entwickelt mit Flutter.",
+  "promoBanner1": "Koche die besten\nRezepte zu Hause",
+  "promoBanner2": "Entdecke jeden Tag\nneue Geschmäcker",
+  "promoBanner3": "Einfache Rezepte für\ndein geschäftiges Leben",
+  "promoBanner4": "Beeindrucke deine Gäste\nmit deinen Fähigkeiten",
+
+  "beefSteakName": "Rindersteak",
+  "beefSteakDescription": "Perfekt gegrilltes Rindersteak mit Kräutern.",
+  "beefSteakIngredient1Quantity": "2 Stück",
+  "beefSteakIngredient1Name": "Rindersteaks (je 8oz)",
+  "beefSteakIngredient2Quantity": "2 EL",
+  "beefSteakIngredient2Name": "Olivenöl",
+  "beefSteakIngredient3Quantity": "1 TL",
+  "beefSteakIngredient3Name": "Salz",
+  "beefSteakIngredient4Quantity": "1/2 TL",
+  "beefSteakIngredient4Name": "schwarzer Pfeffer",
+  "beefSteakStep1": "Steaks beidseitig mit Salz und Pfeffer würzen.",
+  "beefSteakStep2": "Olivenöl in einer Gusseisenpfanne bei hoher Hitze erhitzen.",
+  "beefSteakStep3": "Steaks 3-4 Minuten pro Seite für medium-rare braten.",
+  "beefSteakStep4": "Butter, Knoblauch und Rosmarin in die Pfanne geben.",
+  "beefSteakStep5": "Steaks mit Kräuterbutter begießen für extra Geschmack.",
+  "beefSteakStep6": "5 Minuten ruhen lassen vor dem Servieren.",
+
+  "phoBoName": "Pho Bo",
+  "phoBoDescription": "Traditionelle vietnamesische Rindfleisch-Nudelsuppe.",
+  "phoBoIngredient1Quantity": "1 kg",
+  "phoBoIngredient1Name": "Rinderknochen",
+  "phoBoIngredient2Quantity": "400g",
+  "phoBoIngredient2Name": "Reisnudeln (bánh phở)",
+  "phoBoIngredient3Quantity": "3 Stück",
+  "phoBoIngredient3Name": "Sternanis",
+  "phoBoIngredient4Quantity": "1 Stange",
+  "phoBoIngredient4Name": "Zimt",
+  "phoBoStep1": "Zwiebel und Ingwer über offener Flamme rösten bis aromatisch.",
+  "phoBoStep2": "Rinderknochen 3 Stunden mit Gewürzen kochen für Brühe.",
+  "phoBoStep3": "Reisnudeln nach Packungsanweisung kochen.",
+  "phoBoStep4": "Rindfleisch dünn schneiden für schnelles Garen.",
+  "phoBoStep5": "Schalen mit Nudeln und rohem Rindfleisch zusammenstellen.",
+  "phoBoStep6": "Heiße Brühe darüber gießen um Fleisch zu garen und mit Kräutern garnieren.",
+
+  "banhMiName": "Vietnamesisches Banh Mi",
+  "banhMiDescription": "Knuspriges Baguette mit vietnamesischem eingelegtem Gemüse.",
+  "banhMiIngredient1Quantity": "2",
+  "banhMiIngredient1Name": "französische Baguettes",
+  "banhMiIngredient2Quantity": "200g",
+  "banhMiIngredient2Name": "vietnamesischer Schinken",
+  "banhMiIngredient3Quantity": "100g",
+  "banhMiIngredient3Name": "eingelegte Karotten",
+  "banhMiIngredient4Quantity": "1/4 Tasse",
+  "banhMiIngredient4Name": "Korianderblätter",
+  "banhMiStep1": "Baguettes längs aufschneiden, leicht aushöhlen.",
+  "banhMiStep2": "Mayonnaise und Pastete innen verstreichen.",
+  "banhMiStep3": "Mit vietnamesischem Schinken und Gurke belegen.",
+  "banhMiStep4": "Eingelegtes Gemüse und Koriander hinzufügen.",
+  "banhMiStep5": "Mit Sojasauce und Chili würzen.",
+  "banhMiStep6": "Sandwich leicht pressen und frisch servieren.",
+
+  "bunBoHueName": "Bun Bo Hue",
+  "bunBoHueDescription": "Scharfe Rindfleisch-Nudelsuppe aus Hue.",
+  "bunBoHueIngredient1Quantity": "400g",
+  "bunBoHueIngredient1Name": "dicke runde Reisnudeln",
+  "bunBoHueIngredient2Quantity": "500g",
+  "bunBoHueIngredient2Name": "Rinderhaxe",
+  "bunBoHueIngredient3Quantity": "200g",
+  "bunBoHueIngredient3Name": "Schweinshaxe",
+  "bunBoHueIngredient4Quantity": "3 EL",
+  "bunBoHueIngredient4Name": "Garnelenpaste",
+  "bunBoHueIngredient5Quantity": "2 EL",
+  "bunBoHueIngredient5Name": "Chiliöl",
+  "bunBoHueStep1": "Rinder- und Schweineknochen für kräftige Brühe kochen.",
+  "bunBoHueStep2": "Zitronengras, Zwiebeln und Gewürze zur Brühe geben.",
+  "bunBoHueStep3": "Dicke Reisnudeln weich kochen.",
+  "bunBoHueStep4": "Gekochtes Rind und Schwein dünn schneiden.",
+  "bunBoHueStep5": "Brühe mit Garnelenpaste und Chiliöl würzen.",
+  "bunBoHueStep6": "Mit frischen Kräutern und Limettenschnitzen servieren.",
+
+  "rendangName": "Rindfleisch Rendang",
+  "rendangDescription": "Indonesisches langsam gekochtes scharfes Rindfleisch-Curry.",
+  "rendangIngredient1Quantity": "800g",
+  "rendangIngredient1Name": "Rindfleisch, gewürfelt",
+  "rendangIngredient2Quantity": "400ml",
+  "rendangIngredient2Name": "Kokosmilch",
+  "rendangIngredient3Quantity": "4 EL",
+  "rendangIngredient3Name": "Rendang-Gewürzpaste",
+  "rendangIngredient4Quantity": "3",
+  "rendangIngredient4Name": "Zitronengras-Stängel",
+  "rendangStep1": "Rindfleischwürfel in einem schweren Topf anbraten.",
+  "rendangStep2": "Gewürzpaste hinzufügen und kochen bis aromatisch.",
+  "rendangStep3": "Kokosmilch eingießen und Aromaten hinzufügen.",
+  "rendangStep4": "2 Stunden bei niedriger Hitze köcheln lassen.",
+  "rendangStep5": "Weiterkochen bis die Sauce eindickt.",
+  "rendangStep6": "In den letzten 30 Minuten häufig rühren bis dunkel.",
+
+  "satayName": "Hähnchen-Satay",
+  "satayDescription": "Gegrillte Hähnchen-Spieße mit Erdnusssauce.",
+  "satayIngredient1Quantity": "600g",
+  "satayIngredient1Name": "Hähnchenschenkel, gewürfelt",
+  "satayIngredient2Quantity": "2 EL",
+  "satayIngredient2Name": "Kokosmilch",
+  "satayIngredient3Quantity": "1 EL",
+  "satayIngredient3Name": "Palmzucker",
+  "satayIngredient4Quantity": "20",
+  "satayIngredient4Name": "Bambusspieße",
+  "satayIngredient5Quantity": "1/2 Tasse",
+  "satayIngredient5Name": "Erdnusssauce",
+  "satayStep1": "Hähnchen in Kokosmilch und Gewürzen marinieren.",
+  "satayStep2": "Hähnchen auf eingeweichte Bambusspieße stecken.",
+  "satayStep3": "Über Holzkohle grillen bis goldbraun.",
+  "satayStep4": "Mit restlicher Marinade beim Grillen bestreichen.",
+  "satayStep5": "Erdnusssauce mit gemahlenen Erdnüssen zubereiten.",
+  "satayStep6": "Heiß mit Erdnusssauce und Gurke servieren.",
+
+  "kungPaoChickenName": "Kung Pao Hähnchen",
+  "kungPaoChickenDescription": "Scharfes Sichuan-Hähnchen mit Erdnüssen.",
+  "kungPaoChickenIngredient1Quantity": "500g",
+  "kungPaoChickenIngredient1Name": "Hähnchenbrust, gewürfelt",
+  "kungPaoChickenIngredient2Quantity": "1/2 Tasse",
+  "kungPaoChickenIngredient2Name": "geröstete Erdnüsse",
+  "kungPaoChickenIngredient3Quantity": "8-10",
+  "kungPaoChickenIngredient3Name": "getrocknete Chilischoten",
+  "kungPaoChickenIngredient4Quantity": "1 TL",
+  "kungPaoChickenIngredient4Name": "Sichuan-Pfefferkörner",
+  "kungPaoChickenStep1": "Hähnchenstücke in Sojasauce und Reiswein marinieren.",
+  "kungPaoChickenStep2": "Erdnüsse und getrocknete Chilischoten rösten bis aromatisch.",
+  "kungPaoChickenStep3": "Hähnchen anbraten bis goldbraun.",
+  "kungPaoChickenStep4": "Aromaten und Sauce hinzufügen, gut vermischen.",
+  "kungPaoChickenStep5": "Erdnüsse hinzufügen und alles zusammenmischen.",
+  "kungPaoChickenStep6": "Heiß mit gedämpftem Reis servieren.",
+
+  "estimatedCost": "Geschätzte Kosten",
+  "@estimatedCost": {
+    "description": "Label for estimated recipe cost"
+  },
+
+  "costPerServing": "Kosten pro Portion",
+  "@costPerServing": {
+    "description": "Label for cost calculated per serving"
+  },
+
+  "budgetFriendly": "Budgetfreundlich",
+  "@budgetFriendly": {
+    "description": "Label for low-cost recipes"
+  },
+
+  "moderatePrice": "Moderater Preis",
+  "@moderatePrice": {
+    "description": "Label for medium-cost recipes"
+  },
+
+  "premiumRecipe": "Premium-Rezept",
+  "@premiumRecipe": {
+    "description": "Label for high-cost recipes"
+  },
+
+  "priceNotAvailable": "Preis nicht verfügbar",
+  "@priceNotAvailable": {
+    "description": "Label when recipe price is unknown"
+  },
+
+  "totalIngredientsPrice": "Gesamtpreis der Zutaten",
+  "@totalIngredientsPrice": {
+    "description": "Label for total cost of all ingredients"
+  },
+
+  "exchangeRateUSD": "1.0",
+  "exchangeRateEUR": "0.92",
+  "exchangeRateVND": "24350.0",
+  "exchangeRateIDR": "15750.0",
+  "currencySymbolUSD": "$",
+  "currencySymbolEUR": "€",
+  "currencySymbolVND": "₫",
+  "currencySymbolIDR": "Rp"
+}
