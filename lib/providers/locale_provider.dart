@@ -19,21 +19,21 @@ class LocaleProvider extends ChangeNotifier {
 
   void setLocale(Locale locale) async {
     if (_currentLocale == locale) return;
-    
+
     _currentLocale = locale;
-    
+
     // Save to shared preferences
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('language_code', locale.languageCode);
-    
+
     notifyListeners();
   }
 
   // Helper method to get supported locales
   static const List<Locale> supportedLocales = [
-    Locale('en'), // English
-    Locale('vi'), // Vietnamese
-    Locale('de'), // German
-    Locale('id'), // Indonesian
+    Locale('en', 'US'), // English
+    Locale('vi', 'VN'), // Vietnamese
+    Locale('de', 'DE'), // German
+    Locale('id', 'ID'), // Indonesian
   ];
 }

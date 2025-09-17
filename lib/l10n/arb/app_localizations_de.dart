@@ -655,28 +655,4 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get totalIngredientsPrice => 'Gesamtpreis der Zutaten';
-
-  @override
-  String get exchangeRateUSD => '1.0';
-
-  @override
-  String get exchangeRateEUR => '0.92';
-
-  @override
-  String get exchangeRateVND => '24350.0';
-
-  @override
-  String get exchangeRateIDR => '15750.0';
-
-  @override
-  String get currencySymbolUSD => '\$';
-
-  @override
-  String get currencySymbolEUR => '€';
-
-  @override
-  String get currencySymbolVND => '₫';
-
-  @override
-  String get currencySymbolIDR => 'Rp';
 }

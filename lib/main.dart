@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:recipe_app/providers/exchange_rates_provider.dart';
 import 'l10n/arb/app_localizations.dart';
 import 'providers/locale_provider.dart';
 import 'screens/main_screen.dart';
@@ -15,13 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => LocaleProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LocaleProvider>(
+          create: (_) => LocaleProvider(),
+        ),
+        ChangeNotifierProvider<ExchangeRatesProvider>(
+          create: (_) => ExchangeRatesProvider(),
+        ),
+      ],
       child: Consumer<LocaleProvider>(
         builder: (context, localeProvider, child) {
           return MaterialApp(
             title: 'Recipe App',
-            
+
             // Localization configuration
             locale: localeProvider.currentLocale,
             localizationsDelegates: const [
@@ -31,7 +39,7 @@ class MyApp extends StatelessWidget {
               GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: LocaleProvider.supportedLocales,
-            
+
             theme: ThemeData(
               useMaterial3: true,
               colorScheme: ColorScheme.fromSeed(
@@ -121,7 +129,8 @@ class MyApp extends StatelessWidget {
                 margin: EdgeInsets.zero,
               ),
               chipTheme: ChipThemeData(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -140,9 +149,11 @@ class MyApp extends StatelessWidget {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
-                  borderSide: const BorderSide(color: Color(0xFF00796B), width: 2),
+                  borderSide:
+                      const BorderSide(color: Color(0xFF00796B), width: 2),
                 ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               ),
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.transparent,

@@ -1247,54 +1247,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Total ingredients price'**
   String get totalIngredientsPrice;
-
-  /// No description provided for @exchangeRateUSD.
-  ///
-  /// In en, this message translates to:
-  /// **'1.0'**
-  String get exchangeRateUSD;
-
-  /// No description provided for @exchangeRateEUR.
-  ///
-  /// In en, this message translates to:
-  /// **'0.92'**
-  String get exchangeRateEUR;
-
-  /// No description provided for @exchangeRateVND.
-  ///
-  /// In en, this message translates to:
-  /// **'24350.0'**
-  String get exchangeRateVND;
-
-  /// No description provided for @exchangeRateIDR.
-  ///
-  /// In en, this message translates to:
-  /// **'15750.0'**
-  String get exchangeRateIDR;
-
-  /// No description provided for @currencySymbolUSD.
-  ///
-  /// In en, this message translates to:
-  /// **'\$'**
-  String get currencySymbolUSD;
-
-  /// No description provided for @currencySymbolEUR.
-  ///
-  /// In en, this message translates to:
-  /// **'€'**
-  String get currencySymbolEUR;
-
-  /// No description provided for @currencySymbolVND.
-  ///
-  /// In en, this message translates to:
-  /// **'₫'**
-  String get currencySymbolVND;
-
-  /// No description provided for @currencySymbolIDR.
-  ///
-  /// In en, this message translates to:
-  /// **'Rp'**
-  String get currencySymbolIDR;
 }
 
 class _AppLocalizationsDelegate

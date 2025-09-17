@@ -327,14 +327,5 @@
   "totalIngredientsPrice": "Tổng giá nguyên liệu",
   "@totalIngredientsPrice": {
     "description": "Label for total cost of all ingredients"
-  },
-
-  "exchangeRateUSD": "1.0",
-  "exchangeRateEUR": "0.92",
-  "exchangeRateVND": "24350.0",
-  "exchangeRateIDR": "15750.0",
-  "currencySymbolUSD": "$",
-  "currencySymbolEUR": "€",
-  "currencySymbolVND": "₫",
-  "currencySymbolIDR": "Rp"
+  }
 }

@@ -23,6 +23,7 @@ dependencies:
 
   # Other dependencies you might have
   cupertino_icons: ^1.0.2
+  http: ^1.5.0
 
 dev_dependencies:
   flutter_test:
@@ -38,3 +39,4 @@ flutter:
   # Assets
   assets:
     - assets/images/recipes/
+    - assets/usd_xr.json

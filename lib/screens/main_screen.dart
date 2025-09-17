@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe_app/providers/exchange_rates_provider.dart';
 import '../data/mock_data.dart';
 import '../models/recipe.dart';
 import '../widgets/fade_in_animation.dart';
@@ -17,17 +19,17 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   // Navigation
   int _currentIndex = 0;
-  
+
   // Home screen state
   String _selectedCuisineId = 'all';
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  
+
   // Animation controllers for header behavior
   late AnimationController _headerAnimationController;
   late Animation<double> _headerAnimation;
-  
+
   // Scroll tracking variables
   double _previousScrollOffset = 0;
   bool _isHeaderVisible = true;
@@ -42,8 +44,14 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     if (_searchQuery.isNotEmpty) {
       return recipes
           .where((recipe) =>
-              recipe.getLocalizedName(l10n).toLowerCase().contains(_searchQuery.toLowerCase()) ||
-              recipe.getLocalizedDescription(l10n).toLowerCase().contains(_searchQuery.toLowerCase()))
+              recipe
+                  .getLocalizedName(l10n)
+                  .toLowerCase()
+                  .contains(_searchQuery.toLowerCase()) ||
+              recipe
+                  .getLocalizedDescription(l10n)
+                  .toLowerCase()
+                  .contains(_searchQuery.toLowerCase()))
           .toList();
     }
 
@@ -59,13 +67,15 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    
+    Provider.of<ExchangeRatesProvider>(context, listen: false)
+        .fetchExchangeRates(context);
+
     // Initialize header animation controller
     _headerAnimationController = AnimationController(
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    
+
     _headerAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -73,10 +83,10 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
       parent: _headerAnimationController,
       curve: Curves.easeInOut,
     ));
-    
+
     // Start with header visible
     _headerAnimationController.forward();
-    
+
     // Listen to scroll changes
     _scrollController.addListener(_handleScroll);
   }
@@ -84,16 +94,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   void _handleScroll() {
     // Only handle scroll for home screen
     if (_currentIndex != 0) return;
-    
+
     final currentScrollOffset = _scrollController.offset;
     final scrollDelta = currentScrollOffset - _previousScrollOffset;
-    
+
     // Determine if categories should be visible (near top of page)
     final shouldShowCategories = currentScrollOffset < 200;
-    
+
     // Determine scroll direction and header visibility
     bool shouldShowHeader;
-    
+
     if (scrollDelta > 5) {
       // Scrolling down - hide header
       shouldShowHeader = false;
@@ -104,21 +114,21 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
       // Small movements - keep current state
       shouldShowHeader = _isHeaderVisible;
     }
-    
+
     // Update states if changed
-    if (shouldShowHeader != _isHeaderVisible || 
+    if (shouldShowHeader != _isHeaderVisible ||
         shouldShowCategories != _showCategories) {
       setState(() {
         _isHeaderVisible = shouldShowHeader;
         _showCategories = shouldShowCategories;
         _showFilterButton = !_showCategories && _isHeaderVisible;
-        
+
         // Hide filter overlay when scrolling
         if (scrollDelta.abs() > 2) {
           _showFilterOverlay = false;
         }
       });
-      
+
       // Animate header
       if (_isHeaderVisible) {
         _headerAnimationController.forward();
@@ -126,7 +136,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
         _headerAnimationController.reverse();
       }
     }
-    
+
     _previousScrollOffset = currentScrollOffset;
   }
 
@@ -182,7 +192,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   Widget _buildHomeScreen() {
     final l10n = AppLocalizations.of(context)!;
-    
+
     return Stack(
       children: [
         // Main content
@@ -195,7 +205,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                 height: _showCategories ? 200 : 120,
               ),
             ),
-            
+
             // Banner
             const SliverToBoxAdapter(
               child: Padding(
@@ -206,9 +216,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            
+
             const SliverToBoxAdapter(child: SizedBox(height: 32)),
-            
+
             // Categories (only when at top)
             if (_showCategories) ...[
               SliverToBoxAdapter(
@@ -221,10 +231,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       children: [
                         Text(
                           l10n.categoriesTitle,
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                         ),
                         if (_selectedCuisineId != 'all')
                           TextButton(
@@ -242,9 +253,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              
               const SliverToBoxAdapter(child: SizedBox(height: 16)),
-              
               SliverToBoxAdapter(
                 child: FadeInAnimation(
                   delay: const Duration(milliseconds: 600),
@@ -254,7 +263,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       scrollDirection: Axis.horizontal,
                       itemCount: mockCuisines.length,
-                      separatorBuilder: (context, index) => const SizedBox(width: 12),
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: 12),
                       itemBuilder: (context, index) {
                         final category = mockCuisines[index];
                         final isSelected = category.id == _selectedCuisineId;
@@ -262,7 +272,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                           label: Text(
                             _getCuisineDisplayName(category.id),
                             style: TextStyle(
-                              color: isSelected ? Colors.white : const Color(0xFF374151),
+                              color: isSelected
+                                  ? Colors.white
+                                  : const Color(0xFF374151),
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
                             ),
@@ -279,18 +291,19 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(21),
                           ),
                           side: BorderSide.none,
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.shrinkWrap,
                         );
                       },
                     ),
                   ),
                 ),
               ),
-              
               const SliverToBoxAdapter(child: SizedBox(height: 28)),
             ],
-            
+
             // Recipe Grid
             if (_filteredRecipes.isEmpty)
               SliverToBoxAdapter(
@@ -309,9 +322,10 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         const SizedBox(height: 16),
                         Text(
                           l10n.noRecipesFound,
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Colors.grey.shade600,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    color: Colors.grey.shade600,
+                                  ),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -333,7 +347,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   } else if (constraints.crossAxisExtent > 600) {
                     crossAxisCount = 3; // Tablet portrait
                   }
-                  
+
                   return SliverPadding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     sliver: SliverGrid(
@@ -356,12 +370,12 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   );
                 },
               ),
-            
+
             // Bottom padding to account for bottom navigation
             const SliverToBoxAdapter(child: SizedBox(height: 100)),
           ],
         ),
-        
+
         // Animated Header (only for home screen)
         AnimatedBuilder(
           animation: _headerAnimation,
@@ -402,9 +416,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
-                        
+
                         SizedBox(height: _showCategories ? 28 : 8),
-                        
+
                         // Search bar with optional filter button
                         Row(
                           children: [
@@ -422,7 +436,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                                 ),
                                 child: TextField(
                                   controller: _searchController,
-                                  onChanged: (value) => setState(() => _searchQuery = value),
+                                  onChanged: (value) =>
+                                      setState(() => _searchQuery = value),
                                   decoration: InputDecoration(
                                     hintText: l10n.searchHint,
                                     hintStyle: TextStyle(
@@ -452,7 +467,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            
+
                             // Filter button (only when categories are hidden)
                             if (_showFilterButton) ...[
                               const SizedBox(width: 12),
@@ -463,11 +478,15 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                                   height: 56,
                                   width: 56,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.primary,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     borderRadius: BorderRadius.circular(16),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary
+                                            .withOpacity(0.3),
                                         blurRadius: 8,
                                         offset: const Offset(0, 4),
                                       ),
@@ -476,8 +495,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                                   child: IconButton(
                                     onPressed: _toggleFilterOverlay,
                                     icon: Icon(
-                                      _showFilterOverlay 
-                                          ? Icons.close 
+                                      _showFilterOverlay
+                                          ? Icons.close
                                           : Icons.tune,
                                       color: Colors.white,
                                     ),
@@ -495,7 +514,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             );
           },
         ),
-        
+
         // Filter Overlay
         if (_showFilterOverlay)
           AnimatedOpacity(
@@ -537,11 +556,15 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     return ListTile(
                       title: Text(_getCuisineDisplayName(cuisine.id)),
                       trailing: isSelected
-                          ? Icon(Icons.check, color: Theme.of(context).colorScheme.primary)
+                          ? Icon(Icons.check,
+                              color: Theme.of(context).colorScheme.primary)
                           : null,
                       onTap: () => _selectCuisine(cuisine.id),
-                      tileColor: isSelected 
-                          ? Theme.of(context).colorScheme.primary.withOpacity(0.1) 
+                      tileColor: isSelected
+                          ? Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withOpacity(0.1)
                           : null,
                     );
                   }).toList(),
@@ -557,82 +580,95 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    
-    return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: [
-          _buildHomeScreen(),
-          const SettingsScreen(),
-        ],
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 20,
-              offset: const Offset(0, -5),
+    final exchangeRates = Provider.of<ExchangeRatesProvider>(context);
+
+    return exchangeRates.fetching
+        ? const Center(
+            child: CircularProgressIndicator(),
+          )
+        : Scaffold(
+            body: IndexedStack(
+              index: _currentIndex,
+              children: [
+                _buildHomeScreen(),
+                const SettingsScreen(),
+              ],
             ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.vertical(
-            top: Radius.circular(20),
-          ),
-          child: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: _onTabTapped,
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            unselectedItemColor: Colors.grey.shade400,
-            elevation: 0,
-            selectedLabelStyle: const TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
-            ),
-            unselectedLabelStyle: const TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 11,
-            ),
-            items: [
-              BottomNavigationBarItem(
-                icon: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: _currentIndex == 0 
-                        ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(12),
+            bottomNavigationBar: Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 20,
+                    offset: const Offset(0, -5),
                   ),
-                  child: Icon(
-                    _currentIndex == 0 ? Icons.home : Icons.home_outlined,
-                    size: 24,
-                  ),
-                ),
-                label: l10n.navigationHome,
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: _currentIndex == 1 
-                        ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    _currentIndex == 1 ? Icons.settings : Icons.settings_outlined,
-                    size: 24,
-                  ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(20),
                 ),
-                label: l10n.navigationSettings,
+                child: BottomNavigationBar(
+                  currentIndex: _currentIndex,
+                  onTap: _onTabTapped,
+                  type: BottomNavigationBarType.fixed,
+                  backgroundColor: Colors.white,
+                  selectedItemColor: Theme.of(context).colorScheme.primary,
+                  unselectedItemColor: Colors.grey.shade400,
+                  elevation: 0,
+                  selectedLabelStyle: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                  ),
+                  unselectedLabelStyle: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 11,
+                  ),
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: _currentIndex == 0
+                              ? Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.1)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Icon(
+                          _currentIndex == 0 ? Icons.home : Icons.home_outlined,
+                          size: 24,
+                        ),
+                      ),
+                      label: l10n.navigationHome,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: _currentIndex == 1
+                              ? Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.1)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Icon(
+                          _currentIndex == 1
+                              ? Icons.settings
+                              : Icons.settings_outlined,
+                          size: 24,
+                        ),
+                      ),
+                      label: l10n.navigationSettings,
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      ),
-    );
+            ),
+          );
   }
 }
