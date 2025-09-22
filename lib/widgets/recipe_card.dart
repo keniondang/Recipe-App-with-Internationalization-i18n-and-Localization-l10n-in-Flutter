@@ -146,13 +146,12 @@ class RecipeCard extends StatelessWidget {
             ),
 
             // Recipe Info with formatted numbers and price
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
                     // Recipe name
                     Text(
                       recipe.getLocalizedName(l10n),
@@ -167,17 +166,14 @@ class RecipeCard extends StatelessWidget {
                     const SizedBox(height: 8),
 
                     // Recipe description
-                    Expanded(
-                      child: Text(
-                        recipe.getLocalizedDescription(l10n),
-                        style: TextStyle(
-                          color: Colors.grey.shade600,
-                          fontSize: 12,
-                          height: 1.3,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                    Text(
+                      recipe.getLocalizedDescription(l10n),
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                        fontSize: 12,
+                        height: 1.3,
                       ),
+                      maxLines: null,
                     ),
 
                     const SizedBox(height: 12),
@@ -229,7 +225,6 @@ class RecipeCard extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
           ],
         ),
       ),
