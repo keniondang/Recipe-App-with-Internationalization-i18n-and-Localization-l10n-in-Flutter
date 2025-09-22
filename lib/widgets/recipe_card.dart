@@ -10,7 +10,7 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    
+
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
@@ -56,7 +56,8 @@ class RecipeCard extends StatelessWidget {
                           height: double.infinity,
                           width: double.infinity,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Container(
+                          errorBuilder: (context, error, stackTrace) =>
+                              Container(
                             color: Colors.grey.shade200,
                             child: const Center(
                               child: Icon(
@@ -114,7 +115,8 @@ class RecipeCard extends StatelessWidget {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: _getPriceColor(recipe.priceCategory).withOpacity(0.9),
+                            color: _getPriceColor(recipe.priceCategory)
+                                .withOpacity(0.9),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
@@ -142,7 +144,7 @@ class RecipeCard extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             // Recipe Info with formatted numbers and price
             Expanded(
               flex: 2,
@@ -163,7 +165,7 @@ class RecipeCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 8),
-                    
+
                     // Recipe description
                     Expanded(
                       child: Text(
@@ -177,9 +179,9 @@ class RecipeCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    
+
                     const SizedBox(height: 12),
-                    
+
                     // Time, servings, and calories info with proper formatting
                     Row(
                       children: [
@@ -233,7 +235,7 @@ class RecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   // Helper methods for price display
   Color _getPriceColor(PriceCategory category) {
     switch (category) {
@@ -247,7 +249,7 @@ class RecipeCard extends StatelessWidget {
         return Colors.grey;
     }
   }
-  
+
   IconData _getPriceIcon(PriceCategory category) {
     switch (category) {
       case PriceCategory.budget:

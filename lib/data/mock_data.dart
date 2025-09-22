@@ -54,7 +54,7 @@ final List<Recipe> mockRecipes = [
       'beefSteakStep6',
     ],
   ),
-  
+
   // VIETNAMESE CUISINE
   Recipe(
     id: 'pho_bo',
@@ -97,7 +97,7 @@ final List<Recipe> mockRecipes = [
       'phoBoStep6',
     ],
   ),
-  
+
   Recipe(
     id: 'banh_mi',
     nameKey: 'banhMiName',
@@ -139,7 +139,7 @@ final List<Recipe> mockRecipes = [
       'banhMiStep6',
     ],
   ),
-  
+
   Recipe(
     id: 'bun_bo_hue',
     nameKey: 'bunBoHueName',
@@ -185,7 +185,7 @@ final List<Recipe> mockRecipes = [
       'bunBoHueStep6',
     ],
   ),
-  
+
   // INDONESIAN CUISINE
   Recipe(
     id: 'rendang',
@@ -228,7 +228,7 @@ final List<Recipe> mockRecipes = [
       'rendangStep6',
     ],
   ),
-  
+
   Recipe(
     id: 'satay',
     nameKey: 'satayName',

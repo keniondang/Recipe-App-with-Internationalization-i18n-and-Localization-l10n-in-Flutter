@@ -1,0 +1,333 @@
+{
+  "@@locale": "ar",
+  
+  "navigationHome": "الرئيسية",
+  "navigationSettings": "الإعدادات",
+  "homeTitle": "ماذا ستطبخ\nاليوم؟",
+  "searchHint": "البحث عن الوصفات...",
+  "categoriesTitle": "الفئات",
+  "viewAllButton": "عرض الكل",
+  "filterByCuisine": "تصفية حسب المطبخ",
+  "noRecipesFound": "لا توجد وصفات",
+  "searchDifferentKeywords": "جرب البحث بكلمات مفتاحية مختلفة",
+  "minutesShort": "{minutes}د",
+  "cookTime": "وقت الطبخ",
+  "servings": "الحصص",
+  "rating": "التقييم",
+  "ingredients": "المكونات",
+  "instructions": "التعليمات",
+  "minutesLong": "{minutes} دقيقة",
+
+  "hoursLong": "{hours} {hours, plural, =1{ساعة} =2{ساعتان} few{ساعات} many{ساعة} other{ساعات}}",
+  "@hoursLong": {
+    "description": "Display hours in long format with proper pluralization",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAndMinutes": "{hours}س {minutes}د",
+  "@hoursAndMinutes": {
+    "description": "Display hours and minutes combined",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "calories": "سعرة",
+  "@calories": {
+    "description": "Short form for calories"
+  },
+
+  "caloriesLong": "سعرة حرارية",
+  "@caloriesLong": {
+    "description": "Long form for calories"
+  },
+
+  "daysAgo": "منذ {days} {days, plural, =1{يوم} =2{يومين} few{أيام} many{يوماً} other{يوم}}",
+  "@daysAgo": {
+    "description": "Relative time in days",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "hoursAgo": "منذ {hours} {hours, plural, =1{ساعة} =2{ساعتين} few{ساعات} many{ساعة} other{ساعات}}",
+  "@hoursAgo": {
+    "description": "Relative time in hours",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+
+  "minutesAgo": "منذ {minutes} {minutes, plural, =1{دقيقة} =2{دقيقتين} few{دقائق} many{دقيقة} other{دقائق}}",
+  "@minutesAgo": {
+    "description": "Relative time in minutes",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+
+  "justNow": "منذ قليل",
+  "@justNow": {
+    "description": "Indicates something happened very recently"
+  },
+
+  "createdOn": "تم إنشاؤها في {date}",
+  "@createdOn": {
+    "description": "Shows when a recipe was created",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+
+  "updatedOn": "تم التحديث {time}",
+  "@updatedOn": {
+    "description": "Shows when a recipe was last updated",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "serves": "تكفي {count} {count, plural, =1{شخص} =2{شخصين} few{أشخاص} many{شخصاً} other{شخص}}",
+  "@serves": {
+    "description": "Indicates how many people the recipe serves",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "totalTime": "الوقت الإجمالي: {time}",
+  "@totalTime": {
+    "description": "Shows total cooking time",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+
+  "nutritionPerServing": "لكل حصة",
+  "@nutritionPerServing": {
+    "description": "Indicates nutrition information is per serving"
+  },
+
+  "settingsTitle": "الإعدادات",
+  "preferencesSection": "التفضيلات",
+  "aboutSection": "حول",
+  "languageSetting": "اللغة",
+  "languageSubtitle": "العربية",
+  "notificationsSetting": "الإشعارات",
+  "notificationsSubtitle": "إدارة الإشعارات",
+  "themeSetting": "المظهر",
+  "themeSubtitle": "الوضع الفاتح",
+  "appInfoSetting": "معلومات التطبيق",
+  "appInfoSubtitle": "الإصدار 1.0.0",
+  "helpSetting": "المساعدة والدعم",
+  "helpSubtitle": "الحصول على مساعدة بالتطبيق",
+  "rateSetting": "تقييم التطبيق",
+  "rateSubtitle": "شارك ملاحظاتك",
+  "selectLanguageTitle": "اختر اللغة",
+  "cancelButton": "إلغاء",
+  "applyButton": "تطبيق",
+  "englishLanguage": "الإنجليزية",
+  "vietnameseLanguage": "الفيتنامية",
+  "germanLanguage": "الألمانية",
+  "indonesianLanguage": "الإندونيسية",
+  "arabicLanguage": "العربية",
+  "cuisineAll": "الكل",
+  "cuisineVietnamese": "فيتنامي",
+  "cuisineWestern": "غربي",
+  "cuisineIndonesian": "إندونيسي",
+  "cuisineChinese": "صيني",
+  "cuisineArabic": "عربي",
+  "notificationSettingsPlaceholder": "إعدادات الإشعارات سيتم تنفيذها هنا!",
+  "themeOptionsPlaceholder": "خيارات المظهر سيتم تنفيذها هنا!",
+  "helpSupportPlaceholder": "المساعدة والدعم سيتم تنفيذها هنا!",
+  "ratingThankYou": "شكراً! ميزة التقييم سيتم تنفيذها هنا!",
+  "appName": "تطبيق الوصفات",
+  "appVersion": "1.0.0",
+  "appLegalese": "© 2025 تطبيق الوصفات. جميع الحقوق محفوظة.",
+  "appDescription": "تطبيق وصفات بسيط وأنيق مبني باستخدام Flutter.",
+  "promoBanner1": "اطبخ أفضل\nالوصفات في المنزل",
+  "promoBanner2": "اكتشف نكهات\nجديدة كل يوم",
+  "promoBanner3": "وصفات بسيطة لحياتك\nالمشغولة",
+  "promoBanner4": "أبهر ضيوفك\nبمهاراتك",
+
+  "beefSteakName": "ستيك اللحم",
+  "beefSteakDescription": "ستيك لحم مشوي بالأعشاب بطريقة مثالية.",
+  "beefSteakIngredient1Quantity": "قطعتان",
+  "beefSteakIngredient1Name": "ستيك لحم بقري (8 أونصة لكل قطعة)",
+  "beefSteakIngredient2Quantity": "ملعقتان كبيرتان",
+  "beefSteakIngredient2Name": "زيت الزيتون",
+  "beefSteakIngredient3Quantity": "ملعقة صغيرة",
+  "beefSteakIngredient3Name": "ملح",
+  "beefSteakIngredient4Quantity": "نصف ملعقة صغيرة",
+  "beefSteakIngredient4Name": "فلفل أسود",
+  "beefSteakStep1": "تبّل قطع الستيك بالملح والفلفل من الجهتين.",
+  "beefSteakStep2": "سخّن زيت الزيتون في مقلاة حديد على نار عالية.",
+  "beefSteakStep3": "اشوِ الستيك لمدة 3-4 دقائق من كل جهة للحصول على نضج متوسط.",
+  "beefSteakStep4": "أضف الزبدة والثوم وإكليل الجبل للمقلاة.",
+  "beefSteakStep5": "ادهن الستيك بزبدة الأعشاب لنكهة إضافية.",
+  "beefSteakStep6": "اتركه يرتاح لمدة 5 دقائق قبل التقديم.",
+
+  "phoBoName": "فو بو",
+  "phoBoDescription": "حساء شعيرية اللحم الفيتنامي التقليدي.",
+  "phoBoIngredient1Quantity": "1 كيلو",
+  "phoBoIngredient1Name": "عظام لحم البقر",
+  "phoBoIngredient2Quantity": "400 جرام",
+  "phoBoIngredient2Name": "شعيرية الأرز (bánh phở)",
+  "phoBoIngredient3Quantity": "3 قطع",
+  "phoBoIngredient3Name": "يانسون نجمي",
+  "phoBoIngredient4Quantity": "عود واحد",
+  "phoBoIngredient4Name": "قرفة",
+  "phoBoStep1": "حمّص البصل والزنجبيل على نار مكشوفة حتى تفوح رائحتهما.",
+  "phoBoStep2": "اسلقي عظام اللحم مع التوابل لمدة 3 ساعات لعمل المرق.",
+  "phoBoStep3": "اطبخي شعيرية الأرز حسب تعليمات العبوة.",
+  "phoBoStep4": "قطّعي لحم البقر شرائح رفيعة للطبخ السريع.",
+  "phoBoStep5": "رتّبي الأطباق بالشعيرية واللحم النيء.",
+  "phoBoStep6": "اسكبي المرق الساخن لطبخ اللحم وزيّني بالأعشاب.",
+
+  "banhMiName": "بانه مي فيتنامي",
+  "banhMiDescription": "خبز مقرمش مع خضار فيتنامية مخللة.",
+  "banhMiIngredient1Quantity": "2",
+  "banhMiIngredient1Name": "رغيف خبز فرنسي",
+  "banhMiIngredient2Quantity": "200 جرام",
+  "banhMiIngredient2Name": "لحم خنزير فيتنامي",
+  "banhMiIngredient3Quantity": "100 جرام",
+  "banhMiIngredient3Name": "جزر مخلل",
+  "banhMiIngredient4Quantity": "ربع كوب",
+  "banhMiIngredient4Name": "أوراق الكزبرة",
+  "banhMiStep1": "اقطعي الخبز طولياً واجوّفيه قليلاً.",
+  "banhMiStep2": "ادهني المايونيز والباتيه من الداخل.",
+  "banhMiStep3": "ضعي طبقات من اللحم الفيتنامي والخيار.",
+  "banhMiStep4": "أضيفي الخضار المخللة والكزبرة.",
+  "banhMiStep5": "تبّلي بصوص الصويا والفلفل الحار.",
+  "banhMiStep6": "اضغطي على الساندويش قليلاً وقدّميه طازجاً.",
+
+  "bunBoHueName": "بون بو هوي",
+  "bunBoHueDescription": "حساء شعيرية لحم حار من هوي.",
+  "bunBoHueIngredient1Quantity": "400 جرام",
+  "bunBoHueIngredient1Name": "شعيرية أرز دائرية سميكة",
+  "bunBoHueIngredient2Quantity": "500 جرام",
+  "bunBoHueIngredient2Name": "ساق لحم بقري",
+  "bunBoHueIngredient3Quantity": "200 جرام",
+  "bunBoHueIngredient3Name": "ساق خنزير",
+  "bunBoHueIngredient4Quantity": "3 ملاعق كبيرة",
+  "bunBoHueIngredient4Name": "معجون الروبيان",
+  "bunBoHueIngredient5Quantity": "ملعقتان كبيرتان",
+  "bunBoHueIngredient5Name": "زيت الفلفل الحار",
+  "bunBoHueStep1": "اسلقي عظام اللحم والخنزير للحصول على مرق غني.",
+  "bunBoHueStep2": "أضيفي عشب الليمون والبصل والتوابل للمرق.",
+  "bunBoHueStep3": "اطبخي الشعيرية السميكة حتى تنضج.",
+  "bunBoHueStep4": "قطّعي اللحم المطبوخ والخنزير شرائح رفيعة.",
+  "bunBoHueStep5": "تبّلي المرق بمعجون الروبيان وزيت الفلفل الحار.",
+  "bunBoHueStep6": "قدّمي مع الأعشاب الطازجة وقطع الليمون.",
+
+  "rendangName": "رندانغ اللحم",
+  "rendangDescription": "كاري لحم حار إندونيسي مطبوخ ببطء.",
+  "rendangIngredient1Quantity": "800 جرام",
+  "rendangIngredient1Name": "لحم بقري مقطع مكعبات",
+  "rendangIngredient2Quantity": "400 مل",
+  "rendangIngredient2Name": "حليب جوز الهند",
+  "rendangIngredient3Quantity": "4 ملاعق كبيرة",
+  "rendangIngredient3Name": "معجون توابل الرندانغ",
+  "rendangIngredient4Quantity": "3 عيدان",
+  "rendangIngredient4Name": "عشب الليمون",
+  "rendangStep1": "حمّري مكعبات اللحم في إناء ثقيل القاع.",
+  "rendangStep2": "أضيفي معجون التوابل واطبخي حتى تفوح الرائحة.",
+  "rendangStep3": "اسكبي حليب جوز الهند وأضيفي العطريات.",
+  "rendangStep4": "اتركي الخليط ينضج على نار هادئة لمدة ساعتين.",
+  "rendangStep5": "واصلي الطبخ حتى يثخن القوام.",
+  "rendangStep6": "حرّكي باستمرار في آخر 30 دقيقة حتى يصبح لونه داكناً.",
+
+  "satayName": "ساتيه الدجاج",
+  "satayDescription": "أسياخ دجاج مشوية مع صوص الفول السوداني.",
+  "satayIngredient1Quantity": "600 جرام",
+  "satayIngredient1Name": "فخذ دجاج مقطع مكعبات",
+  "satayIngredient2Quantity": "ملعقتان كبيرتان",
+  "satayIngredient2Name": "حليب جوز الهند",
+  "satayIngredient3Quantity": "ملعقة كبيرة",
+  "satayIngredient3Name": "سكر النخيل",
+  "satayIngredient4Quantity": "20",
+  "satayIngredient4Name": "سيخ خيزران",
+  "satayIngredient5Quantity": "نصف كوب",
+  "satayIngredient5Name": "صوص الفول السوداني",
+  "satayStep1": "تبّلي الدجاج في حليب جوز الهند والتوابل.",
+  "satayStep2": "اربطي الدجاج في أسياخ الخيزران المنقوعة.",
+  "satayStep3": "اشويها على الفحم حتى تصبح ذهبية اللون.",
+  "satayStep4": "ادهنيها بالتتبيلة المتبقية أثناء الشوي.",
+  "satayStep5": "حضّري صوص الفول السوداني بالفول السوداني المطحون.",
+  "satayStep6": "قدّميها ساخنة مع صوص الفول السوداني والخيار.",
+
+  "kungPaoChickenName": "دجاج كونغ باو",
+  "kungPaoChickenDescription": "دجاج سيتشوان حار مع الفول السوداني.",
+  "kungPaoChickenIngredient1Quantity": "500 جرام",
+  "kungPaoChickenIngredient1Name": "صدر دجاج مقطع مكعبات",
+  "kungPaoChickenIngredient2Quantity": "نصف كوب",
+  "kungPaoChickenIngredient2Name": "فول سوداني محمص",
+  "kungPaoChickenIngredient3Quantity": "8-10",
+  "kungPaoChickenIngredient3Name": "فلفل حار مجفف",
+  "kungPaoChickenIngredient4Quantity": "ملعقة صغيرة",
+  "kungPaoChickenIngredient4Name": "حبوب فلفل سيتشوان",
+  "kungPaoChickenStep1": "تبّلي قطع الدجاج في صوص الصويا ونبيذ الأرز.",
+  "kungPaoChickenStep2": "حمّصي الفول السوداني والفلفل المجفف حتى تفوح رائحتهما.",
+  "kungPaoChickenStep3": "اقلي الدجاج حتى يصبح ذهبي اللون.",
+  "kungPaoChickenStep4": "أضيفي العطريات والصوص واخلطي جيداً.",
+  "kungPaoChickenStep5": "أضيفي الفول السوداني واخلطي كل شيء معاً.",
+  "kungPaoChickenStep6": "قدّميه ساخناً مع الأرز المطهو بالبخار.",
+
+  "estimatedCost": "التكلفة المقدرة",
+  "@estimatedCost": {
+    "description": "Label for estimated recipe cost"
+  },
+
+  "costPerServing": "التكلفة لكل حصة",
+  "@costPerServing": {
+    "description": "Label for cost calculated per serving"
+  },
+
+  "budgetFriendly": "اقتصادي",
+  "@budgetFriendly": {
+    "description": "Label for low-cost recipes"
+  },
+
+  "moderatePrice": "سعر متوسط",
+  "@moderatePrice": {
+    "description": "Label for medium-cost recipes"
+  },
+
+  "premiumRecipe": "وصفة فاخرة",
+  "@premiumRecipe": {
+    "description": "Label for high-cost recipes"
+  },
+
+  "priceNotAvailable": "السعر غير متوفر",
+  "@priceNotAvailable": {
+    "description": "Label when recipe price is unknown"
+  },
+
+  "totalIngredientsPrice": "إجمالي سعر المكونات",
+  "@totalIngredientsPrice": {
+    "description": "Label for total cost of all ingredients"
+  }
+}

@@ -60,7 +60,7 @@ class _PromoBannerState extends State<PromoBanner> {
     final l10n = AppLocalizations.of(context)!;
     final currentIcon = _promoIcons[_currentTextIndex];
     final currentText = _getCurrentPromoText(l10n);
-    
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
@@ -107,7 +107,8 @@ class _PromoBannerState extends State<PromoBanner> {
                 const SizedBox(height: 16),
                 AnimatedSwitcher(
                   duration: const Duration(milliseconds: 500),
-                  transitionBuilder: (Widget child, Animation<double> animation) {
+                  transitionBuilder:
+                      (Widget child, Animation<double> animation) {
                     return FadeTransition(
                       opacity: animation,
                       child: SlideTransition(

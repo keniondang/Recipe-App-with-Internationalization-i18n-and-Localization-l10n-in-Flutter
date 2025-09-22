@@ -35,5 +35,6 @@ class LocaleProvider extends ChangeNotifier {
     Locale('vi', 'VN'), // Vietnamese
     Locale('de', 'DE'), // German
     Locale('id', 'ID'), // Indonesian
+    Locale('ar', 'SA'), // Arabic
   ];
 }

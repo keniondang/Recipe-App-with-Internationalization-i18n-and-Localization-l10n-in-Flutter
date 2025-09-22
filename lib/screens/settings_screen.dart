@@ -9,7 +9,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    
+
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFB),
       body: SafeArea(
@@ -23,14 +23,14 @@ class SettingsScreen extends StatelessWidget {
                   Text(
                     l10n.settingsTitle,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28,
-                    ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 28,
+                        ),
                   ),
                 ],
               ),
             ),
-            
+
             // Settings List
             Expanded(
               child: ListView(
@@ -116,22 +116,25 @@ class SettingsScreen extends StatelessWidget {
   String _getCurrentLanguageDisplay(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final locale = Localizations.localeOf(context);
-    
+
     switch (locale.languageCode) {
       case 'en':
-        return l10n.englishLanguage;
+        return "English";
       case 'vi':
-        return l10n.vietnameseLanguage;
+        return "Tiếng Việt";
       case 'de':
-        return l10n.germanLanguage;
+        return "Deutsch";
       case 'id':
-        return l10n.indonesianLanguage;
+        return "Bahasa Indonesia";
+      case 'ar':
+        return "اَلْعَرَبِيَّةُ";
       default:
-        return l10n.englishLanguage;
+        return "English";
     }
   }
 
-  Widget _buildSettingsSection(BuildContext context, String title, List<Widget> children) {
+  Widget _buildSettingsSection(
+      BuildContext context, String title, List<Widget> children) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -140,9 +143,9 @@ class SettingsScreen extends StatelessWidget {
           child: Text(
             title,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w600,
-              color: Colors.grey.shade700,
-            ),
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey.shade700,
+                ),
           ),
         ),
         Container(
@@ -231,14 +234,15 @@ class SettingsScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final localeProvider = Provider.of<LocaleProvider>(context, listen: false);
     String? selectedLanguageCode = localeProvider.currentLocale.languageCode;
-    
+
     showDialog(
       context: context,
       builder: (BuildContext dialogContext) {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               title: Text(l10n.selectLanguageTitle),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -246,29 +250,36 @@ class SettingsScreen extends StatelessWidget {
                   _buildLanguageOption(
                     context,
                     'en',
-                    l10n.englishLanguage,
+                    'English',
                     selectedLanguageCode == 'en',
                     (value) => setState(() => selectedLanguageCode = value),
                   ),
                   _buildLanguageOption(
                     context,
                     'vi',
-                    l10n.vietnameseLanguage,
+                    'Tiếng Việt',
                     selectedLanguageCode == 'vi',
                     (value) => setState(() => selectedLanguageCode = value),
                   ),
                   _buildLanguageOption(
                     context,
                     'de',
-                    l10n.germanLanguage,
+                    'Deutsch',
                     selectedLanguageCode == 'de',
                     (value) => setState(() => selectedLanguageCode = value),
                   ),
                   _buildLanguageOption(
                     context,
                     'id',
-                    l10n.indonesianLanguage,
+                    'Bahasa Indonesia',
                     selectedLanguageCode == 'id',
+                    (value) => setState(() => selectedLanguageCode = value),
+                  ),
+                  _buildLanguageOption(
+                    context,
+                    'ar',
+                    'اَلْعَرَبِيَّةُ',
+                    selectedLanguageCode == 'ar',
                     (value) => setState(() => selectedLanguageCode = value),
                   ),
                 ],
@@ -296,9 +307,9 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget _buildLanguageOption(
-    BuildContext context, 
-    String languageCode, 
-    String languageName, 
+    BuildContext context,
+    String languageCode,
+    String languageName,
     bool isSelected,
     Function(String?) onChanged,
   ) {
