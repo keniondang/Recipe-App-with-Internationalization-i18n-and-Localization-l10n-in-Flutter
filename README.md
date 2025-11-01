@@ -1,16 +1,17 @@
-# recipe_app_with_internationalization_and_localization
+# Recipe App with Internationalization i18n and Localization l10n
 
-A new Flutter project.
+## Requirements
 
-## Getting Started
+This app was built and tested on Flutter 3.35.1 and Dart 3.9.0.
 
-This project is a starting point for a Flutter application.
+## Build and compile
 
-A few resources to get you started if this is your first Flutter project:
+To compile with Flutter, run in CLI:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You will then be prompted to select the available device which you can compile
+for. Select of these options and the app will show up.
